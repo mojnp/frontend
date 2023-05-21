@@ -1,0 +1,5 @@
+.News-Item__date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
