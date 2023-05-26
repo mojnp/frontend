@@ -24,6 +24,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, active, onClick }) => {
     <div
       className={`News-Item${active ? ' active' : ''}`}
       onClick={handleClick}
+      style={{ backgroundImage: `url(${news.image})` }}
     >
       <h4>{news.title}</h4>
       <div className="News-Item__date">

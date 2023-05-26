@@ -15,13 +15,15 @@ const MainNews: React.FC<MainNewsProps> = ({ selectedNews }) => {
         className="News-Main__Container"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <h2>{title}</h2>
-        <p>
-          <AiOutlineCalendar />
-          {date}
-        </p>
-        <p>{content}</p>
+        <div className='News-Main__title'>
+          <h2>{title}</h2>
+          <p>
+            <AiOutlineCalendar />
+            {date}
+          </p>
+        </div>
       </div>
+      <span>{content}</span>
     </div>
   );
 };
