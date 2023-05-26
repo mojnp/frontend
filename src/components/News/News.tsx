@@ -34,6 +34,30 @@ const newsItems: NewsItem[] = [
     date: `2023-06-9`,
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim',
+    image: 'https://picsum.photos/1000/1000',
+  },
+  {
+    id: 4,
+    title: 'NOVI PAZAR 4',
+    date: `2023-03-09`,
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud, Ut enim ad minim veniam ',
+    image: 'https://picsum.photos/1000',
+  },
+  {
+    id: 5,
+    title: 'NOVI PAZAR 5',
+    date: `2023-04-08`,
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+    image: 'https://picsum.photos/1000/',
+  },
+  {
+    id: 6,
+    title: 'NOVI PAZAR 6',
+    date: `2023-09-21`,
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim',
     image: 'https://picsum.photos/1000',
   },
 ];
@@ -47,12 +71,16 @@ const News = () => {
 
   return (
     <div className="News">
-      <MainNews selectedNews={selectedNews} />
-      <SecondaryNews
-        newsItems={newsItems}
-        onNewsItemClick={handleNewsItemClick}
-        selectedNews={selectedNews}
-      />
+      <div>
+        <MainNews selectedNews={selectedNews} />
+      </div>
+      <div>
+        <SecondaryNews
+          newsItems={newsItems}
+          onNewsItemClick={handleNewsItemClick}
+          selectedNews={selectedNews}
+        />
+      </div>
     </div>
   );
 };
