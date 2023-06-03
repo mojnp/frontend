@@ -13,6 +13,7 @@
   flex-direction: column;
   width: 100%;
   position: absolute;
+  left: 0;
 }
 .Header-Mobile nav div a {
   color: #242424;
@@ -45,7 +46,8 @@
 }
 .Header-Mobile svg {
   font-size: 36px;
-  margin: 4px 4px 0 4px;
+  display: flex;
+  margin: 4px;
 }
 .Header-Mobile svg:hover {
   color: #3af;

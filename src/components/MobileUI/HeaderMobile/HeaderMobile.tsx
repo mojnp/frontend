@@ -1,6 +1,6 @@
 import './HeaderMobile.css';
 import { useState } from 'react';
-import { HiMenuAlt3, HiSearch } from 'react-icons/hi';
+import { RxHamburgerMenu, RxAvatar } from 'react-icons/rx';
 import { VscChromeClose } from 'react-icons/vsc';
 import HeaderMobileNavLink from './HeaderMobileNavLink';
 
@@ -13,11 +13,12 @@ const HeaderMobile = () => {
 
   return (
     <header className="Header-Mobile">
+      <RxAvatar />
       <nav
         className={`${isDropdownOpen ? 'open' : ''}`}
         onClick={toggleDropdown}
       >
-        {isDropdownOpen ? <VscChromeClose /> : <HiMenuAlt3 />}
+        {isDropdownOpen ? <VscChromeClose /> : <RxHamburgerMenu />}
         {isDropdownOpen && (
           <div>
             <HeaderMobileNavLink link="/" textContent="Vesti" />
@@ -29,9 +30,6 @@ const HeaderMobile = () => {
           </div>
         )}
       </nav>
-      <span>Vesti</span>
-      <button>Sign In</button>
-      <HiSearch />
     </header>
   );
 };
