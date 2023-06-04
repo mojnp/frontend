@@ -7,6 +7,7 @@ export interface NewsItems {
   published: string;
   content: string;
   image: string;
+  author: string;
 }
 
 interface NewsItemProps {
