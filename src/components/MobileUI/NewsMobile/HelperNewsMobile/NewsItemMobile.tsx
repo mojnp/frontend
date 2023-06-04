@@ -8,6 +8,7 @@ export interface NewsItems {
   content: string;
   summary: string;
   image: string;
+  author: string;
 }
 
 interface NewsItemProps {
@@ -31,7 +32,10 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onClick }) => {
           {news.published}
         </p>
       </div>
-      <p className='summary'>{news.summary.slice(0, 150)}...</p>
+      <p className="summary">{news.summary.slice(0, 150)}...</p>
+      <p style={{ marginBottom: '0', fontSize: '14px', color: 'gray' }}>
+        Preuzeto: {news.author}
+      </p>
     </div>
   );
 };

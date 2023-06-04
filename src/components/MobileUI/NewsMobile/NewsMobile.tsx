@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import SecondaryNewsMobile from './HelperNewsMobile/SecondaryNewsMobile';
 import { NewsItems } from './HelperNewsMobile/NewsItemMobile';
 
-const NewsMobile = () => {
-  const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
+const NewsMobile = ({ searchResults }: { searchResults: NewsItems[] }) => {
+  const [newsItems, setNewsItems] = useState<NewsItems[]>(searchResults);
   const [selectedNews, setSelectedNews] = useState<NewsItems | null>(null);
 
   const handleNewsItemClick = (news: NewsItems) => {
@@ -23,8 +23,16 @@ const NewsMobile = () => {
       setSelectedNews(newsItems[0]);
     }
   }, [newsItems]);
+
+  useEffect(() => {
+    if (searchResults.length > 0) {
+      setNewsItems(searchResults);
+      setSelectedNews(searchResults[0]);
+    }
+  }, [searchResults]);
+
   return (
-    <div className='News-Secondary-Mobile'>
+    <div className="News-Secondary-Mobile">
       <SecondaryNewsMobile
         newsItems={newsItems}
         onNewsItemClick={handleNewsItemClick}
