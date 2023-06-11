@@ -1,5 +1,4 @@
-import './HelperNews.css';
-import { AiOutlineCalendar } from 'react-icons/ai';
+import './HelperNews.scss';
 
 export interface NewsItems {
   linkId: string;
@@ -25,15 +24,12 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, active, onClick }) => {
     <div
       className={`News-Item${active ? ' active' : ''}`}
       onClick={handleClick}
-      style={{ backgroundImage: `url(${news.image})` }}
     >
-      <h4>{news.title}</h4>
-      <div className="News-Item__date">
-        <p>
-          {' '}
-          <AiOutlineCalendar />
-          {news.published}
-        </p>
+      <div className="image-container">
+        <img src={news.image} alt={news.title} />
+      </div>
+      <div className="info">
+        <h4>{news.title}</h4>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 import { NavLink } from 'react-router-dom';
 
 interface HeaderLink {

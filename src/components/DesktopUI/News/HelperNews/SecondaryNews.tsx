@@ -1,4 +1,4 @@
-import './HelperNews.css';
+import './HelperNews.scss';
 import NewsItem, { NewsItems } from './NewsItem';
 
 interface SecondaryNewsProps {
