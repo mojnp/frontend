@@ -1,13 +1,12 @@
 import './Header.scss';
 import HeaderNavLink from './HeaderNavLink';
+import Logo from '../../../Images/np-logo.png';
 
 const Header = () => {
   return (
     <header className="Header-Desktop">
       <div>
-        <h1>
-          MojNP<span>.</span>
-        </h1>
+        <img src={Logo} alt="" height="80px" width="80px" />
       </div>
       <nav>
         <HeaderNavLink link="/" textContent="News" />

@@ -2,6 +2,7 @@
 
 .Tourism {
   .Tourism__image-container {
+    transition: 500ms;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.001),
@@ -27,27 +28,116 @@
     justify-content: flex-end;
 
     h2 {
-      font-family: 'Code-Pro';
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 60px;
       font-weight: 700;
       margin: 0;
       letter-spacing: 1px;
+      transition: 200ms;
+      &:hover {
+        transition: 500ms;
+        transform: translateY(-5px);
+      }
     }
 
     h3 {
-      font-family: sans-serif;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 36px;
       font-weight: 400;
       margin: 0;
+      transition: 200ms;
+      &:hover {
+        transition: 500ms;
+        transform: translateY(-5px);
+      }
+    }
+
+    &:hover {
+      transition: 500ms;
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.8)
+        ),
+        linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url('../../../Images/novi-pazar-vrbak.jpg');
     }
   }
-  .Tourism__card-container {
-    border: 3px solid red;
-    width: 60%;
+
+  .Tourism__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
     margin: 0 auto;
 
+    h1 {
+      font-size: 60px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      letter-spacing: 1px;
+      margin-bottom: 0;
+    }
+
+    span {
+      margin-bottom: 40px;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+  }
+
+  .Tourism__card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+
+    a {
+      transition: 300ms;
+      margin: 0 12px;
+
+      &:hover {
+        transition: 500ms;
+        transform: translateY(-5px);
+      }
+
+      h3 {
+        transition: 300ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text;
+        font-size: 22px;
+        margin: 0;
+        color: $text;
+      }
+
+      &:hover h3 {
+        transition: 300ms;
+        color: $green;
+      }
+    }
+
     .Tourism__card {
-      border: 3px solid blue;
+      margin: 12px 0;
+      padding: 12px 18px;
+      min-height: 200px;
+      height: 300px;
+      max-height: 400px;
+      width: 380px;
+      display: flex;
+      align-items: flex-end;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }
