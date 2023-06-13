@@ -14,14 +14,19 @@
   background-color: $navigation;
   position: sticky;
   top: 0;
-  z-index: 999;
-  padding: 6px 0;
+  z-index: 1000;
+  height: 10vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   div {
     width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+      position: absolute;
+      bottom: -18px;
+    }
   }
 
   .buttons {
@@ -31,7 +36,7 @@
       display: flex;
       justify-content: space-evenly;
       button {
-        padding: 5% 10%;
+        padding: 12px 24px;
         background-color: $red;
         color: #f6f6f6;
         border: none;

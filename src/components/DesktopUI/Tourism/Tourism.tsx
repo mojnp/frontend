@@ -1,5 +1,6 @@
 import './Tourism.scss';
 import TourismCardContainer from './HelperTourism/TourismCardContainer';
+import TourismAnimation from './HelperTourism/TourismAnimation';
 
 export const dummyData = [
   {
@@ -41,10 +42,7 @@ const Tourism = () => {
 
   return (
     <div className="Tourism">
-      <div className="Tourism__image-container">
-        <h2>Upoznajte Nas Grad</h2>
-        <h3>Upoznajte Nas Grad</h3>
-      </div>
+      <TourismAnimation />
       <div className="Tourism__title">
         <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
         <span>Mali grad velike duse</span>

@@ -1,75 +1,6 @@
 @import '../../../index.scss';
 
 .Tourism {
-  .Tourism__image-container {
-    transition: 500ms;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.001),
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0.8)
-      ),
-      linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.001),
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0.4)
-      ),
-      url('../../../Images/novi-pazar-vrbak.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 600px;
-    margin: 0 auto;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    h2 {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-size: 60px;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: 1px;
-      transition: 200ms;
-      &:hover {
-        transition: 500ms;
-        transform: translateY(-5px);
-      }
-    }
-
-    h3 {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-size: 36px;
-      font-weight: 400;
-      margin: 0;
-      transition: 200ms;
-      &:hover {
-        transition: 500ms;
-        transform: translateY(-5px);
-      }
-    }
-
-    &:hover {
-      transition: 500ms;
-      background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.2),
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.8)
-        ),
-        linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.1),
-          rgba(0, 0, 0, 0.2),
-          rgba(0, 0, 0, 0.4)
-        ),
-        url('../../../Images/novi-pazar-vrbak.jpg');
-    }
-  }
-
   .Tourism__title {
     display: flex;
     justify-content: center;
@@ -80,7 +11,7 @@
 
     h1 {
       font-size: 60px;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-family: Georgia, Times, 'Times New Roman', serif;
       letter-spacing: 1px;
       margin-bottom: 0;
     }
@@ -88,7 +19,7 @@
     span {
       margin-bottom: 40px;
       font-size: 22px;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-family: Georgia, Times, 'Times New Roman', serif;
     }
   }
 
@@ -97,7 +28,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
 
     a {
@@ -132,7 +63,7 @@
       min-height: 200px;
       height: 300px;
       max-height: 400px;
-      width: 380px;
+      width: 400px;
       display: flex;
       align-items: flex-end;
       background-position: center;
