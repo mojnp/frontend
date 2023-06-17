@@ -8,6 +8,7 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import MainNewsFetchMobile from './NewsMobile/HelperNewsMobile/MainNewsFetchMobile';
 import NoPage from '../NoPage/NoPage';
 import TourismSectionMobile from './TourismMobile/HelperTourismMobile/TourismSectionMobile';
+import HomeMobile from './HomeMobile/HomeMobile';
 
 const MobileUI = () => {
   return (
@@ -15,8 +16,9 @@ const MobileUI = () => {
       <ScrollToTop />
       <HeaderMobile />
       <Routes>
-        <Route path="/" element={<NewsMobile />} />
-        <Route path="/:linkId" element={<MainNewsFetchMobile />} />
+        <Route path="/" element={<HomeMobile />} />
+        <Route path="/news" element={<NewsMobile />} />
+        <Route path="/news/:linkId" element={<MainNewsFetchMobile />} />
         <Route path="/tourism" element={<TourismMobile />} />
         <Route
           path="/tourism/:id"

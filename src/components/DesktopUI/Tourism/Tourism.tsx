@@ -1,6 +1,5 @@
 import './Tourism.scss';
 import TourismCardContainer from './HelperTourism/TourismCardContainer';
-import TourismAnimation from './HelperTourism/TourismAnimation';
 import { useEffect, useRef, useState } from 'react';
 
 export const dummyData = [
@@ -39,42 +38,45 @@ export const dummyData = [
 const Tourism = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<any[]>([]);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [hasAnimated] = useState(false);
 
-  const handleScroll = () => {
+  useEffect(() => {
+    const handleScroll = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-from-bottom');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleScroll, {
+      root: null,
+      threshold: 0.2,
+    });
+
     const titleElement = titleRef.current;
-
-    if (titleElement && !hasAnimated) {
-      const titleRect = titleElement.getBoundingClientRect();
-      const titleTop = titleRect.top;
-      const titleBottom = titleRect.bottom;
-
-      if (titleTop < window.innerHeight && titleBottom >= 0) {
-        titleElement.classList.add('fade-in-from-bottom');
-        setHasAnimated(true);
-      }
+    if (titleElement) {
+      observer.observe(titleElement);
     }
 
     const cardElements = cardsRef.current;
-
-    cardElements.forEach(cardElement => {
-      if (cardElement && !cardElement.isAnimated) {
-        const cardRect = cardElement.getBoundingClientRect();
-        const cardTop = cardRect.top;
-        const cardBottom = cardRect.bottom;
-
-        if (cardTop < window.innerHeight && cardBottom >= 0) {
-          cardElement.classList.add('fade-in-from-bottom');
-          cardElement.isAnimated = true;
-        }
+    cardElements.forEach((cardElement: any) => {
+      if (cardElement) {
+        observer.observe(cardElement);
       }
     });
-  };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (titleElement) {
+        observer.unobserve(titleElement);
+      }
+
+      cardElements.forEach((cardElement: any) => {
+        if (cardElement) {
+          observer.unobserve(cardElement);
+        }
+      });
     };
   }, []);
 
@@ -84,9 +86,6 @@ const Tourism = () => {
 
   return (
     <div className="Tourism">
-      <div className="Tourism__animation">
-        <TourismAnimation />
-      </div>
       <div
         className={`Tourism__title ${hasAnimated ? 'fade-in-from-bottom' : ''}`}
         ref={titleRef}

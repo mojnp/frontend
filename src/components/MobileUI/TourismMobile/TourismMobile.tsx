@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './TourismMobile.scss';
 import TourismCardContainerMobile from './HelperTourismMobile/TourismCardContainerMobile';
-import TourismAnimationMobile from './HelperTourismMobile/TourismAnimationMobile';
 
 export const dummyData = [
   {
@@ -39,36 +38,47 @@ export const dummyData = [
 const TourismMobile = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<any[]>([]);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  setTimeout(() => {
-    titleRef.current?.classList.add('fade-in-from-bottom');
-    setHasAnimated(true);
-  }, 2000);
-
-  const handleScroll = () => {
-    const cardElements = cardsRef.current;
-
-    cardElements.forEach((cardElement: any) => {
-      if (cardElement && !cardElement.isAnimated) {
-        const cardRect = cardElement.getBoundingClientRect();
-        const cardTop = cardRect.top;
-        const cardBottom = cardRect.bottom;
-
-        if (cardTop < window.innerHeight && cardBottom >= 0) {
-          cardElement.classList.add('fade-in-from-bottom');
-          cardElement.isAnimated = true;
-        }
-      }
-    });
-  };
+  const [hasAnimated] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    const handleScroll = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-from-bottom');
+          observer.unobserve(entry.target);
+        }
+      });
     };
-  }, [hasAnimated]);
+
+    const observer = new IntersectionObserver(handleScroll, {
+      root: null,
+      threshold: 0.2,
+    });
+
+    const titleElement = titleRef.current;
+    if (titleElement) {
+      observer.observe(titleElement);
+    }
+
+    const cardElements = cardsRef.current;
+    cardElements.forEach((cardElement: any) => {
+      if (cardElement) {
+        observer.observe(cardElement);
+      }
+    });
+
+    return () => {
+      if (titleElement) {
+        observer.unobserve(titleElement);
+      }
+
+      cardElements.forEach((cardElement: any) => {
+        if (cardElement) {
+          observer.unobserve(cardElement);
+        }
+      });
+    };
+  }, []);
 
   const handleCardClick = (card: any) => {
     console.log(card);
@@ -76,7 +86,6 @@ const TourismMobile = () => {
 
   return (
     <div className="TourismMobile">
-      <TourismAnimationMobile />
       <div
         className={`TourismMobile__title ${
           hasAnimated ? 'fade-in-from-bottom' : ''

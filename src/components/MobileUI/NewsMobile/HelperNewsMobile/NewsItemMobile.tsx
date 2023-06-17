@@ -18,7 +18,7 @@ interface NewsItemProps {
 
 const NewsItem: React.FC<NewsItemProps> = ({ news }) => {
   return (
-    <Link to={`/${news.linkId}`} className="News-Item-Mobile__content">
+    <Link to={`/news/:${news.linkId}`} className="News-Item-Mobile__content">
       <div className="News-Item-Mobile">
         <img src={news.image} alt="" />
         <h4>{news.title}</h4>

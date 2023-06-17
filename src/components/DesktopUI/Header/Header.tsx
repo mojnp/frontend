@@ -1,15 +1,18 @@
 import './Header.scss';
 import HeaderNavLink from './HeaderNavLink';
 import Logo from '../../../Images/Kula_motrilja.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className="Header-Desktop">
       <div>
-        <img src={Logo} alt="" height="76px" width="57px" />
+        <Link to="/">
+          <img src={Logo} alt="" height="62vw" width="47vw" />
+        </Link>
       </div>
       <nav>
-        <HeaderNavLink link="/" textContent="Vesti" />
+        <HeaderNavLink link="/news" textContent="Vesti" />
         <HeaderNavLink link="/tourism" textContent="Turizam" />
         <HeaderNavLink link="/report-a-problem" textContent="Prijavi Problem" />
       </nav>

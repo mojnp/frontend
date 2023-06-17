@@ -6,13 +6,15 @@ import Tourism, { dummyData } from './Tourism/Tourism';
 import ReportProblem from './ReportProblem/ReportProblem';
 import NoPage from '../NoPage/NoPage';
 import TourismSection from './Tourism/HelperTourism/TourismSection';
+import Home from './Home/Home';
 
 const DesktopUI = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<News />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
         <Route path="/tourism" element={<Tourism />} />
         <Route
           path="/tourism/:id"

@@ -4,6 +4,7 @@ import { RxHamburgerMenu, RxAvatar } from 'react-icons/rx';
 import { VscChromeClose } from 'react-icons/vsc';
 import HeaderMobileNavLink from './HeaderMobileNavLink';
 import Logo from '../../../Images/Kula_motrilja.png';
+import { Link } from 'react-router-dom';
 
 const HeaderMobile = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,7 +24,9 @@ const HeaderMobile = () => {
   return (
     <header className="Header-Mobile">
       <RxAvatar />
-      <img src={Logo} alt="" width='30px' height='40px' />
+      <Link to="/">
+        <img src={Logo} alt="" width="30px" height="40px" />
+      </Link>
       <nav
         className={`${isDropdownOpen ? 'open' : ''}`}
         onClick={toggleDropdown}
@@ -31,7 +34,7 @@ const HeaderMobile = () => {
         {isDropdownOpen ? <VscChromeClose /> : <RxHamburgerMenu />}
         {isDropdownOpen && (
           <div>
-            <HeaderMobileNavLink link="/" textContent="Vesti" />
+            <HeaderMobileNavLink link="/news" textContent="Vesti" />
             <HeaderMobileNavLink link="/tourism" textContent="Turizam" />
             <HeaderMobileNavLink
               link="/report-a-problem"

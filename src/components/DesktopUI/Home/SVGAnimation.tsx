@@ -1,6 +1,6 @@
 import { SVGProps, useEffect, useState } from 'react';
 
-const TourismAnimationMobile = () => {
+const SVGAnimation = () => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const TourismAnimationMobile = () => {
       xmlSpace="preserve"
       className={isActive ? 'active' : ''}
       width="100%"
-      height="85vh"
+      height="80vh"
     >
       <style type="text/css">
         {`
@@ -95,4 +95,4 @@ const TourismAnimationMobile = () => {
   );
 };
 
-export default TourismAnimationMobile;
+export default SVGAnimation;
