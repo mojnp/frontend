@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './TourismMobile.scss';
 import TourismCardContainerMobile from './HelperTourismMobile/TourismCardContainerMobile';
 
@@ -36,9 +36,7 @@ export const dummyData = [
 ];
 
 const TourismMobile = () => {
-  const titleRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<any[]>([]);
-  const [hasAnimated] = useState(false);
 
   useEffect(() => {
     const handleScroll = (entries: IntersectionObserverEntry[]) => {
@@ -55,11 +53,6 @@ const TourismMobile = () => {
       threshold: 0.2,
     });
 
-    const titleElement = titleRef.current;
-    if (titleElement) {
-      observer.observe(titleElement);
-    }
-
     const cardElements = cardsRef.current;
     cardElements.forEach((cardElement: any) => {
       if (cardElement) {
@@ -68,10 +61,6 @@ const TourismMobile = () => {
     });
 
     return () => {
-      if (titleElement) {
-        observer.unobserve(titleElement);
-      }
-
       cardElements.forEach((cardElement: any) => {
         if (cardElement) {
           observer.unobserve(cardElement);
@@ -86,12 +75,7 @@ const TourismMobile = () => {
 
   return (
     <div className="TourismMobile">
-      <div
-        className={`TourismMobile__title ${
-          hasAnimated ? 'fade-in-from-bottom' : ''
-        }`}
-        ref={titleRef}
-      >
+      <div className="TourismMobile__title">
         <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
         <span>
           Novi Pazar, živahan grad sa bogatom istorijom i zadivljujućom

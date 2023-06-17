@@ -24,8 +24,8 @@ const HeaderMobile = () => {
   return (
     <header className="Header-Mobile">
       <RxAvatar />
-      <Link to="/">
-        <img src={Logo} alt="" width="30px" height="40px" />
+      <Link style={{width: '36px', height: '44px'}} to="/">
+        <img src={Logo} alt="" width="36px" height="44px" />
       </Link>
       <nav
         className={`${isDropdownOpen ? 'open' : ''}`}

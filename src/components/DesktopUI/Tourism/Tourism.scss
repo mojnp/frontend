@@ -65,26 +65,16 @@
       // background-size: cover;
     }
   }
-  .Tourism__title {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transition-delay: 0.3s;
-  }
-
-  .Tourism__title.fade-in-from-bottom {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   .Tourism__card-link {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 1s ease, transform 1s ease;
   }
 
   .Tourism__card-link.fade-in-from-bottom {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
   }
 }

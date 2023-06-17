@@ -3,13 +3,13 @@
 .Header-Mobile {
   background-color: $navigation;
   margin: 12px 0;
-  box-shadow: 0 0 5px 2px #ddd;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  height: 7vh;
+  height: 8vh;
   z-index: 1000;
   nav {
     div {
@@ -18,11 +18,12 @@
       position: absolute;
       left: 0;
       right: 0;
-      height: 100vh;
+      top: 8vh;
+      height: 85vh;
       a {
         color: $lighttext;
         display: flex;
-        height: 31vh;
+        height: 100%;
         font-size: 36px;
         background-color: $navigation;
         align-items: center;
@@ -55,20 +56,10 @@
       }
     }
   }
-  button {
-    border: none;
-    padding: 7px 14px;
-    box-shadow: 0 2px 5px 1px #ddd;
-    border-radius: 0.3rem;
-    transition: 200ms;
-    &:hover {
-      transition: 200ms;
-    }
-  }
   svg {
     font-size: 44px;
     display: flex;
-    margin: 0 8px;
+    margin: 0 16px;
     &:hover {
       color: $blue;
     }
