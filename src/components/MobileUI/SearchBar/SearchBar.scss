@@ -3,27 +3,36 @@
 .SearchBar {
   display: flex;
   justify-content: center;
-  height: 34px;
+  height: 48px;
+  background-color: $navigation;
+  width: 100%;
   input {
     background-color: $navigation;
     color: $text;
-    border-top-right-radius: none;
-    border-bottom-right-radius: none;
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
+    border-radius: 0px;
     margin: 0;
-    font-size: 20px;
+    font-size: 24px;
+    width: 100%;
+    transition: 500ms;
+    border: none;
+    outline: none;
   }
   button {
     border: none;
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-    background-color: $blue;
+    border-radius: 0px;
+    background-color: $navigation;
+    width: 20%;
     margin: 0;
+    &:hover {
+      border: 1px solid $blue;
+    }
+    &:focus {
+      border: 1px solid $blue;
+    }
     svg {
-      font-size: 20px;
+      font-size: 32px;
       padding: 0 4px;
-      color: $navigation;
+      color: $blue;
     }
   }
 }

@@ -1,6 +1,7 @@
 import './SearchBar.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -9,6 +10,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -20,8 +22,16 @@ const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
     onSearch(searchQuery);
   };
 
+  useEffect(() => {
+    setSearchQuery('');
+    onSearch('');
+  }, [location.pathname]);
+
   return (
     <div className="SearchBar">
+      <button onClick={handleSearch}>
+        <AiOutlineSearch />
+      </button>
       <input
         value={searchQuery}
         onChange={e => setSearchQuery(e.target.value)}
@@ -29,9 +39,6 @@ const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
         placeholder={placeholder}
         name="Search Bar"
       />
-      <button onClick={handleSearch}>
-        <AiOutlineSearch />
-      </button>
     </div>
   );
 };
