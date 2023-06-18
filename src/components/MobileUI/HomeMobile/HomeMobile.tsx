@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import SVGAnimationMobile from './SVGAnimationMobile';
+import SVGNoAnimationMobile from './SVGNoAnimationMobile';
 
 const Home = () => {
   const [isAnimationShow, setIsAnimationShow] = useState(true);
 
   useEffect(() => {
-    const animationShown = localStorage.getItem('animationShown');
+    const animationShown = sessionStorage.getItem('animationShown');
     if (animationShown) {
       setIsAnimationShow(false);
     } else {
-      localStorage.setItem('animationShown', 'true');
+      sessionStorage.setItem('animationShown', 'true');
     }
   }, []);
 
   return (
     <div className="Home">
-      {isAnimationShow ? <SVGAnimationMobile /> : null}
+      {isAnimationShow ? <SVGAnimationMobile /> : <SVGNoAnimationMobile />}
     </div>
   );
 };
