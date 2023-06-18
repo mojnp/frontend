@@ -22,23 +22,13 @@ const NewsItem: React.FC<NewsItemProps> = ({ news }) => {
       <div className="News-Item-Mobile">
         <img src={news.image} alt="" />
         <h4>{news.title}</h4>
+        <p className="summary">{news.summary.slice(0, 150)}...</p>
         <div className="News-Item-Mobile__date">
           <p>
             <AiOutlineCalendar />
-            {news.published}
+            <span>{news.published}</span>
           </p>
         </div>
-        <p className="summary">{news.summary.slice(0, 150)}...</p>
-        <p
-          style={{
-            marginBottom: '0',
-            fontSize: '14px',
-            color: 'rgb(100, 100, 100)',
-            borderBottom: '1px solid lightgray',
-          }}
-        >
-          Preuzeto: {news.author}
-        </p>
       </div>
     </Link>
   );

@@ -1,18 +1,26 @@
-import './HelperNewsMobile.scss';
+import React from 'react';
 import NewsItemMobile, { NewsItems } from './NewsItemMobile';
 
-interface SecondaryNewsProps {
+interface SecondaryNewsMobileProps {
   newsItems: NewsItems[];
+  searchQuery: string;
 }
 
-const SecondaryNews: React.FC<SecondaryNewsProps> = ({ newsItems }) => {
+const SecondaryNewsMobile: React.FC<SecondaryNewsMobileProps> = ({
+  newsItems,
+  searchQuery
+}) => {
+  const filteredNewsItems = newsItems.filter((news) =>
+    news.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="Secondary-News-Mobile__Container">
-      {newsItems.map(news => (
+      {filteredNewsItems.map((news) => (
         <NewsItemMobile key={news.linkId} news={news} />
       ))}
     </div>
   );
 };
 
-export default SecondaryNews;
+export default SecondaryNewsMobile;

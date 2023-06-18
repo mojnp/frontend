@@ -9,15 +9,27 @@ import MainNewsFetchMobile from './NewsMobile/HelperNewsMobile/MainNewsFetchMobi
 import NoPage from '../NoPage/NoPage';
 import TourismSectionMobile from './TourismMobile/HelperTourismMobile/TourismSectionMobile';
 import HomeMobile from './HomeMobile/HomeMobile';
+import SearchBar from './SearchBar/SearchBar';
+import { useState } from 'react';
 
 const MobileUI = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchQueryChange = (query: string) => {
+    setSearchQuery(query);
+  };
+
   return (
     <>
       <ScrollToTop />
+      <SearchBar onSearch={handleSearchQueryChange} placeholder="Pretrazi..." />
       <HeaderMobile />
       <Routes>
         <Route path="/" element={<HomeMobile />} />
-        <Route path="/news" element={<NewsMobile />} />
+        <Route
+          path="/news"
+          element={<NewsMobile searchQuery={searchQuery} />}
+        />
         <Route path="/news/:linkId" element={<MainNewsFetchMobile />} />
         <Route path="/tourism" element={<TourismMobile />} />
         <Route

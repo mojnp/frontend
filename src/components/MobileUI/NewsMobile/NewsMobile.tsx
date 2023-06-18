@@ -1,20 +1,13 @@
-import './NewsMobile.scss';
 import { useEffect, useState } from 'react';
 import SecondaryNewsMobile from './HelperNewsMobile/SecondaryNewsMobile';
 import { NewsItems } from './HelperNewsMobile/NewsItemMobile';
-import SearchBar from '../SearchBar/SearchBar';
 
-const NewsMobile = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+interface NewsMobileProps {
+  searchQuery: string;
+}
+
+const NewsMobile = ({ searchQuery }: NewsMobileProps) => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
-
-  const filteredNewsItems = newsItems.filter((news: NewsItems) =>
-    news.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   useEffect(() => {
     fetch('https://mojnp.onrender.com/news/')
@@ -23,10 +16,16 @@ const NewsMobile = () => {
       .catch(error => console.log(error));
   }, []);
 
+  const filteredNewsItems = newsItems.filter((news: NewsItems) =>
+    news.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="News-Secondary-Mobile">
-      <SearchBar onSearch={handleSearch} placeholder="Pretrazite vesti..." />
-      <SecondaryNewsMobile newsItems={filteredNewsItems} />
+      <SecondaryNewsMobile
+        newsItems={filteredNewsItems}
+        searchQuery={searchQuery}
+      />
     </div>
   );
 };

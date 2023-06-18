@@ -27,6 +27,7 @@ const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
         onChange={e => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
+        name="Search Bar"
       />
       <button onClick={handleSearch}>
         <AiOutlineSearch />

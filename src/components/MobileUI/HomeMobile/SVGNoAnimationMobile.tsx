@@ -21,10 +21,10 @@ const SVGNoAnimationMobile = () => {
     >
       <style type="text/css">
         {`
-        svg .st0 { fill: rgb(67, 114, 157); }
-        svg .st1 { fill: rgb(183, 53, 57); }
-        svg .st2 { fill: rgb(100, 168, 108); }
-        svg .st3 { fill: rgb(200, 200, 200); }
+        svg .st0 { fill: rgb(67, 114, 157, 0.2); }
+        svg .st1 { fill: rgb(183, 53, 57, 0.2); }
+        svg .st2 { fill: rgb(100, 168, 108, 0.2); }
+        svg .st3 { fill: rgb(200, 200, 200, 0.2); }
         `}
       </style>
       <g>
