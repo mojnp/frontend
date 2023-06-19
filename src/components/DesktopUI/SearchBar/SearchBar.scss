@@ -36,38 +36,34 @@
   }
 }
 .blue-svg-color {
-  color: $blue;
   &:hover {
-    border: 1px solid $blue;
+    color: $blue;
   }
   &:focus {
-    border: 1px solid $blue;
+    color: $blue;
   }
 }
 .green-svg-color {
-  color: $green;
   &:hover {
-    border: 1px solid $green;
+    color: $green;
   }
   &:focus {
-    border: 1px solid $green;
+    color: $green;
   }
 }
 .red-svg-color {
-  color: $red;
   &:hover {
-    border: 1px solid $red;
+    color: $red;
   }
   &:focus {
-    border: 1px solid $red;
+    color: $red;
   }
 }
 .normal {
-  color: #888;
   &:hover {
-    border: 1px solid #888;
+    color: #888;
   }
   &:focus {
-    border: 1px solid #888;
+    color: #888;
   }
 }
