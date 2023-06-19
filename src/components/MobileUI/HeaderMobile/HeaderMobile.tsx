@@ -4,10 +4,12 @@ import { RxHamburgerMenu, RxAvatar } from 'react-icons/rx';
 import { VscChromeClose } from 'react-icons/vsc';
 import HeaderMobileNavLink from './HeaderMobileNavLink';
 import Logo from '../../../Images/Kula_motrilja.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const HeaderMobile = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();
+  const { pathname } = location;
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -23,9 +25,21 @@ const HeaderMobile = () => {
     setIsDropdownOpen(prevState => !prevState);
   };
 
+  let buttonColor = '';
+
+  if (pathname.includes('/news')) {
+    buttonColor = 'blue-svg-color';
+  } else if (pathname.includes('/tourism')) {
+    buttonColor = 'green-svg-color';
+  } else if (pathname.includes('/report-a-problem')) {
+    buttonColor = 'red-svg-color';
+  } else {
+    buttonColor = 'normal';
+  }
+
   return (
     <header className="Header-Mobile">
-      <RxAvatar />
+      <RxAvatar className={`svg-icon ${buttonColor}`} />
       <Link style={{ width: '36px', height: '44px' }} to="/">
         <img src={Logo} alt="" width="36px" height="44px" />
       </Link>

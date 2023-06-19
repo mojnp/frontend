@@ -1,9 +1,29 @@
 import './Header.scss';
 import HeaderNavLink from './HeaderNavLink';
 import Logo from '../../../Images/Kula_motrilja.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const location = useLocation();
+  const { pathname } = location;
+
+  let logInButtonClass = '';
+  let signInButtonClass = '';
+
+  if (pathname.includes('/news')) {
+    logInButtonClass = 'blue-first';
+    signInButtonClass = 'blue-second';
+  } else if (pathname.includes('/tourism')) {
+    logInButtonClass = 'green-first';
+    signInButtonClass = 'green-second';
+  } else if (pathname.includes('/report-a-problem')) {
+    logInButtonClass = 'red-first';
+    signInButtonClass = 'red-second';
+  } else {
+    logInButtonClass = 'normal-first';
+    signInButtonClass = 'normal-second';
+  }
+
   return (
     <header className="Header-Desktop">
       <div>
@@ -18,8 +38,8 @@ const Header = () => {
       </nav>
       <div className="buttons">
         <div className="buttons-container">
-          <button>Log in</button>
-          <button>Sign up</button>
+          <button className={logInButtonClass}>Log in</button>
+          <button className={signInButtonClass}>Sign up</button>
         </div>
       </div>
     </header>

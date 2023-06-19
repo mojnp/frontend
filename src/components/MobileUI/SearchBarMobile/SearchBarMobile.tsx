@@ -1,4 +1,4 @@
-import './SearchBar.scss';
+import './SearchBarMobile.scss';
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useLocation } from 'react-router-dom';
@@ -11,6 +11,7 @@ interface SearchBarProps {
 const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const { pathname } = location;
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -27,10 +28,22 @@ const SearchBar = ({ onSearch, placeholder }: SearchBarProps) => {
     onSearch('');
   }, [location.pathname]);
 
+  let buttonColor = '';
+
+  if (pathname.includes('/news')) {
+    buttonColor = 'blue-svg-color';
+  } else if (pathname.includes('/tourism')) {
+    buttonColor = 'green-svg-color';
+  } else if (pathname.includes('/report-a-problem')) {
+    buttonColor = 'red-svg-color';
+  } else {
+    buttonColor = 'normal';
+  }
+
   return (
-    <div className="SearchBar">
+    <div className="SearchBarMobile">
       <button onClick={handleSearch}>
-        <AiOutlineSearch />
+        <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
       </button>
       <input
         value={searchQuery}

@@ -1,0 +1,73 @@
+@import '../../../index.scss';
+
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  height: 3vw;
+  background-color: $navigation;
+  width: 50%;
+  margin: 0 auto;
+  input {
+    background-color: $navigation;
+    color: $text;
+    border-radius: 0px;
+    margin: 0;
+    font-size: 1.5vw;
+    width: 100%;
+    transition: 500ms;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: rgb(180, 180, 180);
+    }
+  }
+
+  button {
+    border: none;
+    border-radius: 0px;
+    background-color: $navigation;
+    width: 20%;
+    margin: 0;
+    svg {
+      font-size: 2.2vw;
+      padding: 0 4px;
+    }
+  }
+}
+.blue-svg-color {
+  color: $blue;
+  &:hover {
+    border: 1px solid $blue;
+  }
+  &:focus {
+    border: 1px solid $blue;
+  }
+}
+.green-svg-color {
+  color: $green;
+  &:hover {
+    border: 1px solid $green;
+  }
+  &:focus {
+    border: 1px solid $green;
+  }
+}
+.red-svg-color {
+  color: $red;
+  &:hover {
+    border: 1px solid $red;
+  }
+  &:focus {
+    border: 1px solid $red;
+  }
+}
+.normal {
+  color: #888;
+  &:hover {
+    border: 1px solid #888;
+  }
+  &:focus {
+    border: 1px solid #888;
+  }
+}

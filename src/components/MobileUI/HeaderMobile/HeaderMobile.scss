@@ -60,13 +60,23 @@
     font-size: 44px;
     display: flex;
     margin: 0 16px;
-    &:hover {
-      color: $blue;
-    }
+    color: $text;
   }
   nav.open {
     svg {
       color: orangered;
     }
   }
+}
+.blue-svg-color:hover {
+  color: $blue;
+}
+.green-svg-color:hover {
+  color: $green;
+}
+.red-svg-color:hover {
+  color: $red;
+}
+.normal {
+  color: #888;
 }

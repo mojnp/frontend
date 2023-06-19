@@ -9,7 +9,7 @@ import MainNewsFetchMobile from './NewsMobile/HelperNewsMobile/MainNewsFetchMobi
 import NoPage from '../NoPage/NoPage';
 import TourismSectionMobile from './TourismMobile/HelperTourismMobile/TourismSectionMobile';
 import HomeMobile from './HomeMobile/HomeMobile';
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from './SearchBarMobile/SearchBarMobile';
 import { useState } from 'react';
 
 const MobileUI = () => {

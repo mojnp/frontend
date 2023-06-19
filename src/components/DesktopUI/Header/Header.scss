@@ -32,20 +32,18 @@
       justify-content: space-evenly;
       button {
         padding: 12px 24px;
-        background-color: $red;
-        color: #f6f6f6;
-        border: none;
         font-size: 1vw;
         border-radius: 5px;
         transition: 0.4s all;
-
         font-family: 'Code Pro';
+
+        &:nth-child(1) {
+          color: #f6f6f6;
+          border: none;
+        }
 
         &:hover {
           transform: translateY(-0.1vw);
-        }
-        &:nth-child(2) {
-          background-color: $blue;
         }
       }
     }
@@ -98,4 +96,32 @@
       }
     }
   }
+}
+.blue-second {
+  border: 1px solid $blue;
+  color: $blue;
+}
+.blue-first {
+  background-color: $blue;
+}
+.green-second {
+  border: 1px solid $green;
+  color: $green;
+}
+.green-first {
+  background-color: $green;
+}
+.red-second {
+  border: 1px solid $red;
+  color: $red;
+}
+.red-first {
+  background-color: $red;
+}
+.normal-first {
+  background-color: #888;
+}
+.normal-second {
+  color: #888;
+  border: 1px solid #888;
 }

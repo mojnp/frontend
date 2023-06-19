@@ -4,7 +4,11 @@ import SecondaryNews from './HelperNews/SecondaryNews';
 import { useEffect, useState } from 'react';
 import { NewsItems } from './HelperNews/NewsItem';
 
-const News = () => {
+interface NewsProps {
+  searchQuery: string;
+}
+
+const News = ({ searchQuery }: NewsProps) => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
   const [selectedNews, setSelectedNews] = useState<NewsItems | null>(null);
 
@@ -19,6 +23,10 @@ const News = () => {
       .catch(error => console.log(error));
   }, []);
 
+  const filteredNewsItems = newsItems.filter((news: NewsItems) =>
+    news.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   useEffect(() => {
     if (newsItems.length > 0) {
       setSelectedNews(newsItems[0]);
@@ -32,7 +40,7 @@ const News = () => {
       </div>
       <div className="News-Secondary-News">
         <SecondaryNews
-          newsItems={newsItems}
+          newsItems={filteredNewsItems}
           onNewsItemClick={handleNewsItemClick}
           selectedNews={selectedNews}
         />
