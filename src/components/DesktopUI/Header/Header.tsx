@@ -28,7 +28,7 @@ const Header = () => {
     <header className="Header-Desktop">
       <div>
         <Link to="/">
-          <img src={Logo} alt="" height="62vw" width="47vw" />
+          <img src={Logo} alt="" />
         </Link>
       </div>
       <nav>
