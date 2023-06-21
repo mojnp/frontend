@@ -18,14 +18,18 @@ const SecondaryNews: React.FC<SecondaryNewsProps> = ({
 
   return (
     <div className="Secondary-News__Container">
-      {newsItems.map(news => (
-        <NewsItem
-          key={news.linkId}
-          news={news}
-          active={selectedNews?.linkId === news.linkId}
-          onClick={handleNewsItemClick}
-        />
-      ))}
+      {newsItems?.length ? (
+        newsItems.map(news => (
+          <NewsItem
+            key={news.linkId}
+            news={news}
+            active={selectedNews?.linkId === news.linkId}
+            onClick={handleNewsItemClick}
+          />
+        ))
+      ) : (
+        <p>Vesti nisu ucitane, sacekajte trenutak.</p>
+      )}
     </div>
   );
 };

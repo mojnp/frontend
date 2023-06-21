@@ -17,15 +17,17 @@ const News = ({ searchQuery }: NewsProps) => {
   };
 
   useEffect(() => {
-    fetch('https://mojnp.onrender.com/news/')
+    fetch('https://api.mojnovipazar.info/news/')
       .then(response => response.json())
       .then(data => setNewsItems(data))
       .catch(error => console.log(error));
   }, []);
 
-  const filteredNewsItems = newsItems.filter((news: NewsItems) =>
-    news.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredNewsItems =
+    newsItems &&
+    newsItems.filter((news: NewsItems) =>
+      news.title.toLowerCase().includes(searchQuery?.toLowerCase() || '')
+    );
 
   useEffect(() => {
     if (newsItems.length > 0) {

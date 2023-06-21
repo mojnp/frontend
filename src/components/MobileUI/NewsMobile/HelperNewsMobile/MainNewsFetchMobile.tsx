@@ -6,7 +6,7 @@ const MainNewsFetchMobile = () => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
 
   useEffect(() => {
-    fetch('https://mojnp.onrender.com/news/')
+    fetch('https://api.mojnovipazar.info/news/')
       .then(response => response.json())
       .then(data => setNewsItems(data))
       .catch(error => console.log(error));
