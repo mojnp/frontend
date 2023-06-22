@@ -8,6 +8,10 @@
   width: 50%;
   margin: 0 auto;
 
+  &.dark {
+    background-color: $darknavigation;
+  }
+
   input {
     background-color: $navigation;
     color: $text;
@@ -19,8 +23,16 @@
     border: none;
     outline: none;
 
+    &.dark {
+      background-color: $darknavigation;
+    }
+
     &::placeholder {
       color: rgb(180, 180, 180);
+
+      &.dark {
+        color: rgb(100, 100, 100);
+      }
     }
   }
 
@@ -30,6 +42,10 @@
     background-color: $navigation;
     width: 20%;
     margin: 0;
+
+    &.dark {
+      background-color: $darknavigation;
+    }
 
     svg {
       font-size: 2.2vw;
@@ -42,6 +58,10 @@
   &:hover,
   &:focus {
     color: $blue;
+
+    &.dark {
+      color: $darkblue;
+    }
   }
 }
 
@@ -49,6 +69,10 @@
   &:hover,
   &:focus {
     color: $green;
+
+    &.dark {
+      color: $darkgreen;
+    }
   }
 }
 
@@ -56,6 +80,10 @@
   &:hover,
   &:focus {
     color: $red;
+
+    &.dark {
+      color: $darkred;
+    }
   }
 }
 
@@ -73,6 +101,10 @@
   background-color: $navigation;
   width: 100%;
 
+  &.dark {
+    background-color: $darknavigation;
+  }
+
   input {
     background-color: $navigation;
     color: $text;
@@ -83,6 +115,11 @@
     transition: 500ms;
     border: none;
     outline: none;
+
+    &.dark {
+      background-color: $darknavigation;
+      color: $darktext;
+    }
   }
 
   button {
@@ -91,6 +128,10 @@
     background-color: $navigation;
     width: 20%;
     margin: 0;
+
+    &.dark {
+      background-color: $darknavigation;
+    }
 
     svg {
       font-size: 32px;

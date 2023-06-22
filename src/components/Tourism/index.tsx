@@ -37,7 +37,7 @@ export const dummyData = [
   },
 ];
 
-const TourismDesktop = () => {
+const TourismDesktop = ({ colorScheme }: any) => {
   const cardsRef = useRef<any[]>([]);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const TourismDesktop = () => {
   };
 
   return (
-    <div className="Tourism">
+    <div className={`Tourism ${colorScheme === 'light' ? '' : 'dark'}`}>
       <div className="Tourism__title">
         <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
         <span>
@@ -89,12 +89,13 @@ const TourismDesktop = () => {
         cards={dummyData}
         onCardClick={handleCardClick}
         cardRefs={cardsRef}
+        colorScheme={colorScheme}
       />
     </div>
   );
 };
 
-const TourismMobile = () => {
+const TourismMobile = ({ colorScheme }: any) => {
   const cardsRef = useRef<any[]>([]);
 
   useEffect(() => {
@@ -133,10 +134,16 @@ const TourismMobile = () => {
   };
 
   return (
-    <div className="TourismMobile">
-      <div className="TourismMobile__title">
-        <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
-        <span>
+    <div className={`TourismMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
+      <div
+        className={`TourismMobile__title ${
+          colorScheme === 'light' ? '' : 'dark'
+        }`}
+      >
+        <h1 className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
+          Vas vodic za gradski odmor u Novom Pazaru
+        </h1>
+        <span className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
           Novi Pazar, živahan grad sa bogatom istorijom i zadivljujućom
           prirodom. Budite spremni da vas mami jedinstveni spoj drevnih kultura
           i pejzaža koji oduzimaju dah.
@@ -146,14 +153,23 @@ const TourismMobile = () => {
         cards={dummyData}
         onCardClick={handleCardClick}
         cardRefs={cardsRef}
+        colorScheme={colorScheme}
       />
     </div>
   );
 };
 
-const Tourism = () => {
+const Tourism = ({ colorScheme }: any) => {
   const { width } = useViewportSize();
-  return <>{width <= 786 ? <TourismMobile /> : <TourismDesktop />}</>;
+  return (
+    <>
+      {width <= 786 ? (
+        <TourismMobile colorScheme={colorScheme} />
+      ) : (
+        <TourismDesktop colorScheme={colorScheme} />
+      )}
+    </>
+  );
 };
 
 export default Tourism;

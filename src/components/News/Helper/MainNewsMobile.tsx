@@ -4,9 +4,10 @@ import { NewsItems } from './NewsItem';
 
 interface MainNewsProps {
   news: NewsItems[];
+  colorScheme: any;
 }
 
-const MainNewsMobile: React.FC<MainNewsProps> = ({ news }) => {
+const MainNewsMobile: React.FC<MainNewsProps> = ({ news, colorScheme }) => {
   const { linkId } = useParams<{ linkId: string }>();
   const selectedNews = news.find(item => item.linkId.split('?')[0] === linkId);
 
@@ -15,7 +16,9 @@ const MainNewsMobile: React.FC<MainNewsProps> = ({ news }) => {
   }
 
   return (
-    <div className="News-Main-Mobile">
+    <div
+      className={`News-Main-Mobile ${colorScheme === 'light' ? '' : 'dark'}`}
+    >
       <img src={selectedNews.image} alt="" />
       <div className="News-Main-Mobile__title">
         <h2>{selectedNews.title}</h2>

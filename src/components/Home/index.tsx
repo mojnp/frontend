@@ -1,17 +1,33 @@
 import './index.scss';
 import { useViewportSize } from '@mantine/hooks';
 
-const HomeDesktop = () => {
-  return <div>Home Desktop</div>;
+const HomeDesktop = ({ colorScheme }: any) => {
+  return (
+    <div className={`Home ${colorScheme === 'light' ? '' : 'dark'}`}>
+      Home Desktop
+    </div>
+  );
 };
 
-const HomeMobile = () => {
-  return <div>Home Mobile</div>;
+const HomeMobile = ({ colorScheme }: any) => {
+  return (
+    <div className={`HomeMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
+      Home Mobile
+    </div>
+  );
 };
 
-const Home = () => {
+const Home = ({ colorScheme }: any) => {
   const { width } = useViewportSize();
-  return <>{width <= 786 ? <HomeMobile /> : <HomeDesktop />}</>;
+  return (
+    <>
+      {width <= 786 ? (
+        <HomeMobile colorScheme={colorScheme} />
+      ) : (
+        <HomeDesktop colorScheme={colorScheme} />
+      )}
+    </>
+  );
 };
 
 export default Home;

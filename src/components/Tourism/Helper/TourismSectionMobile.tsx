@@ -3,15 +3,25 @@ import { TourismCards } from './TourismCardMobile';
 
 interface TourismSectionProps {
   cards: TourismCards[];
+  colorScheme: any;
 }
 
-const TourismSectionMobile: React.FC<TourismSectionProps> = ({ cards }) => {
+const TourismSectionMobile: React.FC<TourismSectionProps> = ({
+  cards,
+  colorScheme,
+}) => {
   const { id } = useParams<{ id: string }>();
   const renderItem = cards.find(card => card.id.split('?')[0] === id);
 
   return (
-    <div className="TourismMobile-Section">
-      <p>{renderItem?.title}</p>
+    <div
+      className={`TourismMobile-Section ${
+        colorScheme === 'light' ? '' : 'dark'
+      }`}
+    >
+      <p className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
+        {renderItem?.title}
+      </p>
     </div>
   );
 };

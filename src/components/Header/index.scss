@@ -18,6 +18,11 @@
   height: 10vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+  &.dark {
+    background-color: $darknavigation;
+    box-shadow: none;
+  }
+
   img {
     width: 2.6vw;
     height: 3.3vw;
@@ -48,6 +53,9 @@
         &:nth-child(1) {
           color: #f6f6f6;
           border: none;
+          &.dark {
+            color: $text;
+          }
         }
 
         &:hover {
@@ -79,34 +87,58 @@
       &:nth-child(1):hover {
         color: $blue;
         border-bottom: 2px solid $blue;
+        &.dark {
+          color: $darkblue;
+          border-bottom: 2px solid $darkblue;
+        }
       }
 
       &:nth-child(2):hover {
         color: $green;
         border-bottom: 2px solid $green;
+        &.dark {
+          color: $darkgreen;
+          border-bottom: 2px solid $darkgreen;
+        }
       }
 
       &:nth-child(3):hover {
         color: $red;
         border-bottom: 2px solid $red;
+        &.dark {
+          color: $darkred;
+          border-bottom: 2px solid $darkred;
+        }
       }
 
       &:nth-child(1).active {
         color: $blue;
         border-bottom: 2px solid $blue;
         font-weight: 700;
+        &.dark {
+          color: $darkblue;
+          border-bottom: 2px solid $darkblue;
+        }
       }
 
       &:nth-child(2).active {
         color: $green;
         border-bottom: 2px solid $green;
         font-weight: 700;
+        &.dark {
+          color: $darkgreen;
+          border-bottom: 2px solid $darkgreen;
+        }
       }
 
       &:nth-child(3).active {
         color: $red;
         border-bottom: 2px solid $red;
         font-weight: 700;
+        &.dark {
+          color: $darkred;
+          border-bottom: 2px solid $darkred;
+        }
       }
     }
   }
@@ -115,28 +147,49 @@
 .blue-second {
   border: 1px solid $blue;
   color: $blue;
+  &.dark {
+    color: $darkblue;
+    border-bottom: 1px solid $darkblue;
+  }
 }
 
 .blue-first {
   background-color: $blue;
+  &.dark {
+    background-color: $darkblue;
+  }
 }
 
 .green-second {
   border: 1px solid $green;
   color: $green;
+  &.dark {
+    color: $darkgreen;
+    border-bottom: 1px solid $darkgreen;
+  }
 }
 
 .green-first {
   background-color: $green;
+  &.dark {
+    background-color: $darkgreen;
+  }
 }
 
 .red-second {
   border: 1px solid $red;
   color: $red;
+  &.dark {
+    color: $darkred;
+    border-bottom: 1px solid $darkred;
+  }
 }
 
 .red-first {
   background-color: $red;
+  &.dark {
+    background-color: $darkred;
+  }
 }
 
 .normal-first {
@@ -160,6 +213,11 @@
   height: 8vh;
   z-index: 1000;
 
+  &.dark {
+    background-color: $darknavigation;
+    box-shadow: none;
+  }
+
   nav {
     div {
       display: flex;
@@ -179,6 +237,11 @@
         align-items: center;
         justify-content: center;
 
+        &.dark {
+          color: $darklighttext;
+          background-color: $darknavigation;
+        }
+
         &:nth-child(2) {
           border-top: 2px solid #ddd;
           border-bottom: 2px solid #ddd;
@@ -186,26 +249,44 @@
 
         &:nth-child(1):hover {
           background-color: $blue;
+          &.dark {
+            background-color: $darkblue;
+          }
         }
 
         &:nth-child(2):hover {
           background-color: $green;
+          &.dark {
+            background-color: $darkgreen;
+          }
         }
 
         &:nth-child(3):hover {
           background-color: $red;
+          &.dark {
+            background-color: $darkred;
+          }
         }
 
         &:nth-child(1).active {
           background-color: $blue;
+          &.dark {
+            background-color: $darkblue;
+          }
         }
 
         &:nth-child(2).active {
           background-color: $green;
+          &.dark {
+            background-color: $darkgreen;
+          }
         }
 
         &:nth-child(3).active {
           background-color: $red;
+          &.dark {
+            background-color: $darkred;
+          }
         }
 
         &.active {
@@ -220,6 +301,9 @@
     display: flex;
     margin: 0 16px;
     color: $text;
+    &.dark {
+      color: $darktext;
+    }
   }
 
   nav.open {
@@ -231,14 +315,23 @@
 
 .blue-svg-color {
   color: $blue;
+  &.dark {
+    color: $darkblue;
+  }
 }
 
 .green-svg-color {
   color: $green;
+  &.dark {
+    color: $darkgreen;
+  }
 }
 
 .red-svg-color {
   color: $red;
+  &.dark {
+    color: $darkred;
+  }
 }
 
 .normal {

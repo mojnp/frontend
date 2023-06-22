@@ -45,9 +45,17 @@
         font-family: Georgia, Times, 'Times New Roman', serif;
         margin: 12px 0 4px 12px;
 
+        &.dark {
+          color: $darktext;
+        }
+
         &:hover {
           transition: 300ms;
           color: $green;
+
+          &.dark {
+            color: $darkgreen;
+          }
         }
       }
     }
@@ -120,9 +128,17 @@
         margin: 12px 0 4px 12px;
         font-family: Georgia, Times, 'Times New Roman', serif;
 
+        &.dark {
+          color: $darktext;
+        }
+
         &:hover {
           transition: 300ms;
           color: $green;
+
+          &.dark {
+            color: $darkgreen;
+          }
         }
       }
     }

@@ -10,6 +10,10 @@
   margin-top: 12px;
   box-shadow: 5px 0 7px #ddd;
 
+  &.dark {
+    background-color: $darknavigation;
+  }
+
   p {
     margin: 0;
   }
@@ -17,6 +21,10 @@
   a {
     color: blue;
     transition: 200ms;
+
+    &.dark {
+      color: rgb(80, 80, 255);
+    }
 
     &:hover {
       color: rgb(0, 191, 255);

@@ -41,6 +41,10 @@
     color: $blue;
     font-size: 28px;
     margin: 0;
+
+    &.dark {
+      color: $darkblue;
+    }
   }
 
   &::before {
@@ -70,6 +74,10 @@
   display: flex;
   align-items: center;
   color: $blue;
+
+  &.dark {
+    color: $darkblue;
+  }
 }
 
 .News-Item {
@@ -100,6 +108,10 @@
       border-radius: 5px;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
         rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+      &.dark {
+        box-shadow: none;
+      }
     }
   }
 
@@ -124,9 +136,17 @@
   &.active {
     .image-container {
       border: 3px solid $blue;
+
+      &.dark {
+        border: 3px solid $darkblue;
+      }
     }
     h1 {
       color: $blue;
+
+      &.dark {
+        color: $darkblue;
+      }
     }
   }
 }
@@ -141,19 +161,31 @@
   z-index: 1;
   color: $blue;
 
+  &.dark {
+    color: $darkblue;
+  }
+
   h2 {
     font-weight: 600;
     margin: 2% 0%;
     line-height: 1.2;
     font-size: 4vw;
     color: $blue;
+
+    &.dark {
+      color: $darkblue;
+    }
   }
 
   p {
     margin: 1% 0%;
-    color: #555555;
+    color: $lightertext;
     display: flex;
     align-items: center;
+
+    &.dark {
+      color: $darklightertext;
+    }
   }
 }
 
@@ -163,6 +195,11 @@
   background-color: $navigation;
   border-radius: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  &.dark {
+    background-color: $darknavigation;
+    box-shadow: none;
+  }
 
   img {
     width: 100%;
@@ -179,8 +216,16 @@
     color: $text;
     padding: 0 12px;
 
+    &.dark {
+      color: $darktext;
+    }
+
     &:hover {
       color: $blue;
+
+      &.dark {
+        color: $darkblue;
+      }
     }
   }
 
@@ -189,6 +234,10 @@
     font-size: 16px;
     margin: 10px 0;
     padding: 0 12px;
+
+    &.dark {
+      color: $darklightertext;
+    }
   }
 }
 
@@ -200,6 +249,10 @@
     font-size: 16px;
     padding: 0 12px 12px 12px;
     color: rgb(100, 100, 100);
+
+    &.dark {
+      color: rgb(200, 200, 200);
+    }
   }
 }
 
@@ -229,6 +282,10 @@
     margin-top: 10px;
     color: rgb(100, 100, 100);
     font-size: 18px;
+
+    &.dark {
+      color: rgb(200, 200, 200);
+    }
   }
 }
 
@@ -236,4 +293,8 @@
   font-size: 19px;
   margin: 10px 0;
   color: $text;
+
+  &.dark {
+    color: $darktext;
+  }
 }

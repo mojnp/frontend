@@ -7,9 +7,14 @@ import { useLocation } from 'react-router-dom';
 interface SearchBarProps {
   onSearch: (query: string) => void;
   placeholder: string;
+  colorScheme: any;
 }
 
-const SearchBarDesktop = ({ onSearch, placeholder }: SearchBarProps) => {
+const SearchBarDesktop = ({
+  onSearch,
+  placeholder,
+  colorScheme,
+}: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
   const { pathname } = location;
@@ -42,7 +47,7 @@ const SearchBarDesktop = ({ onSearch, placeholder }: SearchBarProps) => {
   }, [location.pathname]);
 
   return (
-    <div className="SearchBar">
+    <div className={`SearchBar ${colorScheme === 'light' ? '' : 'dark'}`}>
       <button onClick={handleSearch}>
         <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
       </button>
@@ -57,7 +62,11 @@ const SearchBarDesktop = ({ onSearch, placeholder }: SearchBarProps) => {
   );
 };
 
-const SearchBarMobile = ({ onSearch, placeholder }: SearchBarProps) => {
+const SearchBarMobile = ({
+  onSearch,
+  placeholder,
+  colorScheme,
+}: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
   const { pathname } = location;
@@ -90,7 +99,7 @@ const SearchBarMobile = ({ onSearch, placeholder }: SearchBarProps) => {
   }, [location.pathname]);
 
   return (
-    <div className="SearchBarMobile">
+    <div className={`SearchBarMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
       <button onClick={handleSearch}>
         <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
       </button>
@@ -105,7 +114,7 @@ const SearchBarMobile = ({ onSearch, placeholder }: SearchBarProps) => {
   );
 };
 
-const SearchBar = () => {
+const SearchBar = ({ colorScheme }: any) => {
   const { width } = useViewportSize();
   const [, setSearchQuery] = useState('');
 
@@ -118,11 +127,13 @@ const SearchBar = () => {
         <SearchBarMobile
           onSearch={handleSearchQueryChange}
           placeholder="Pretrazite sajt..."
+          colorScheme={colorScheme}
         />
       ) : (
         <SearchBarDesktop
           onSearch={handleSearchQueryChange}
           placeholder="Pretrazite sajt..."
+          colorScheme={colorScheme}
         />
       )}
     </>
