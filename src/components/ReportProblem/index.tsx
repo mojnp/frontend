@@ -1,34 +1,28 @@
 import { useViewportSize } from '@mantine/hooks';
 import './index.scss';
 
-const ReportProblemDesktop = ({ colorScheme }: any) => {
+const ReportProblemDesktop = ({ currentTheme }: any) => {
   return (
-    <div className={`ReportProblem ${colorScheme === 'light' ? '' : 'dark'}`}>
-      Report a Problem
-    </div>
+    <div className={`ReportProblem ${currentTheme}`}>Report a Problem</div>
   );
 };
 
-const ReportProblemMobile = ({ colorScheme }: any) => {
+const ReportProblemMobile = ({ currentTheme }: any) => {
   return (
-    <div
-      className={`ReportProblem-Mobile ${
-        colorScheme === 'light' ? '' : 'dark'
-      }`}
-    >
+    <div className={`ReportProblem-Mobile ${currentTheme}`}>
       Report a Problem Mobile
     </div>
   );
 };
 
-const ReportProblem = ({ colorScheme }: any) => {
+const ReportProblem = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <ReportProblemMobile colorScheme={colorScheme} />
+        <ReportProblemMobile currentTheme={currentTheme} />
       ) : (
-        <ReportProblemDesktop colorScheme={colorScheme} />
+        <ReportProblemDesktop currentTheme={currentTheme} />
       )}
     </>
   );

@@ -37,7 +37,7 @@ export const dummyData = [
   },
 ];
 
-const TourismDesktop = ({ colorScheme }: any) => {
+const TourismDesktop = ({ currentTheme }: any) => {
   const cardsRef = useRef<any[]>([]);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const TourismDesktop = ({ colorScheme }: any) => {
   };
 
   return (
-    <div className={`Tourism ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`Tourism ${currentTheme}`}>
       <div className="Tourism__title">
         <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
         <span>
@@ -89,13 +89,12 @@ const TourismDesktop = ({ colorScheme }: any) => {
         cards={dummyData}
         onCardClick={handleCardClick}
         cardRefs={cardsRef}
-        colorScheme={colorScheme}
       />
     </div>
   );
 };
 
-const TourismMobile = ({ colorScheme }: any) => {
+const TourismMobile = ({ currentTheme }: any) => {
   const cardsRef = useRef<any[]>([]);
 
   useEffect(() => {
@@ -134,16 +133,10 @@ const TourismMobile = ({ colorScheme }: any) => {
   };
 
   return (
-    <div className={`TourismMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
-      <div
-        className={`TourismMobile__title ${
-          colorScheme === 'light' ? '' : 'dark'
-        }`}
-      >
-        <h1 className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
-          Vas vodic za gradski odmor u Novom Pazaru
-        </h1>
-        <span className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`TourismMobile ${currentTheme}`}>
+      <div className="TourismMobile__title">
+        <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
+        <span>
           Novi Pazar, živahan grad sa bogatom istorijom i zadivljujućom
           prirodom. Budite spremni da vas mami jedinstveni spoj drevnih kultura
           i pejzaža koji oduzimaju dah.
@@ -153,20 +146,19 @@ const TourismMobile = ({ colorScheme }: any) => {
         cards={dummyData}
         onCardClick={handleCardClick}
         cardRefs={cardsRef}
-        colorScheme={colorScheme}
       />
     </div>
   );
 };
 
-const Tourism = ({ colorScheme }: any) => {
+const Tourism = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <TourismMobile colorScheme={colorScheme} />
+        <TourismMobile currentTheme={currentTheme} />
       ) : (
-        <TourismDesktop colorScheme={colorScheme} />
+        <TourismDesktop currentTheme={currentTheme} />
       )}
     </>
   );

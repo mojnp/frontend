@@ -7,7 +7,7 @@ import { NewsItems } from './Helper/NewsItem';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const NewsDesktop = ({ colorScheme }: any) => {
+const NewsDesktop = ({ currentTheme }: any) => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
   const [selectedNews, setSelectedNews] = useState<NewsItems | null>(null);
 
@@ -30,7 +30,7 @@ const NewsDesktop = ({ colorScheme }: any) => {
   }, [newsItems]);
 
   return (
-    <div className={`News ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`News ${currentTheme}`}>
       <div className="News-Main-News">
         {selectedNews && <MainNews selectedNews={selectedNews} />}
       </div>
@@ -45,7 +45,7 @@ const NewsDesktop = ({ colorScheme }: any) => {
   );
 };
 
-const NewsMobile = ({ colorScheme }: any) => {
+const NewsMobile = ({ currentTheme }: any) => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
 
   useEffect(() => {
@@ -57,24 +57,20 @@ const NewsMobile = ({ colorScheme }: any) => {
   }, []);
 
   return (
-    <div
-      className={`News-Secondary-Mobile ${
-        colorScheme === 'light' ? '' : 'dark'
-      }`}
-    >
+    <div className={`News-Secondary-Mobile ${currentTheme}`}>
       <SecondaryNewsMobile newsItems={newsItems} />
     </div>
   );
 };
 
-const News = ({ colorScheme }: any) => {
+const News = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <NewsMobile colorScheme={colorScheme} />
+        <NewsMobile currentTheme={currentTheme} />
       ) : (
-        <NewsDesktop colorScheme={colorScheme} />
+        <NewsDesktop currentTheme={currentTheme} />
       )}
     </>
   );

@@ -23,6 +23,75 @@
     box-shadow: none;
   }
 
+  &.dark nav a {
+    &:nth-child(1):hover {
+      color: $darkblue;
+      border-bottom: 2px solid $darkblue;
+    }
+
+    &:nth-child(2):hover {
+      color: $darkgreen;
+      border-bottom: 2px solid $darkgreen;
+    }
+
+    &:nth-child(3):hover {
+      color: $darkred;
+      border-bottom: 2px solid $darkred;
+    }
+
+    &:nth-child(1).active {
+      color: $darkblue;
+      border-bottom: 2px solid $darkblue;
+      font-weight: 700;
+    }
+
+    &:nth-child(2).active {
+      color: $darkgreen;
+      border-bottom: 2px solid $darkgreen;
+      font-weight: 700;
+    }
+
+    &:nth-child(3).active {
+      color: $darkred;
+      border-bottom: 2px solid $darkred;
+      font-weight: 700;
+    }
+  }
+
+  &.dark .blue-second {
+    border: 1px solid $darkblue;
+    color: $darkblue;
+    background-color: $darknavigation;
+  }
+
+  &.dark .blue-first {
+    background-color: $darkblue;
+  }
+
+  &.dark .green-second {
+    border: 1px solid $darkgreen;
+    color: $darkgreen;
+    background-color: $darknavigation;
+  }
+
+  &.dark .green-first {
+    background-color: $darkgreen;
+  }
+
+  &.dark .red-second {
+    border: 1px solid $darkred;
+    color: $darkred;
+    background-color: $darknavigation;
+  }
+
+  &.dark .red-first {
+    background-color: $darkred;
+  }
+
+  &.dark .normal-second {
+    background-color: $darknavigation;
+  }
+
   img {
     width: 2.6vw;
     height: 3.3vw;
@@ -53,9 +122,6 @@
         &:nth-child(1) {
           color: #f6f6f6;
           border: none;
-          &.dark {
-            color: $text;
-          }
         }
 
         &:hover {
@@ -87,58 +153,34 @@
       &:nth-child(1):hover {
         color: $blue;
         border-bottom: 2px solid $blue;
-        &.dark {
-          color: $darkblue;
-          border-bottom: 2px solid $darkblue;
-        }
       }
 
       &:nth-child(2):hover {
         color: $green;
         border-bottom: 2px solid $green;
-        &.dark {
-          color: $darkgreen;
-          border-bottom: 2px solid $darkgreen;
-        }
       }
 
       &:nth-child(3):hover {
         color: $red;
         border-bottom: 2px solid $red;
-        &.dark {
-          color: $darkred;
-          border-bottom: 2px solid $darkred;
-        }
       }
 
       &:nth-child(1).active {
         color: $blue;
         border-bottom: 2px solid $blue;
         font-weight: 700;
-        &.dark {
-          color: $darkblue;
-          border-bottom: 2px solid $darkblue;
-        }
       }
 
       &:nth-child(2).active {
         color: $green;
         border-bottom: 2px solid $green;
         font-weight: 700;
-        &.dark {
-          color: $darkgreen;
-          border-bottom: 2px solid $darkgreen;
-        }
       }
 
       &:nth-child(3).active {
         color: $red;
         border-bottom: 2px solid $red;
         font-weight: 700;
-        &.dark {
-          color: $darkred;
-          border-bottom: 2px solid $darkred;
-        }
       }
     }
   }
@@ -147,49 +189,28 @@
 .blue-second {
   border: 1px solid $blue;
   color: $blue;
-  &.dark {
-    color: $darkblue;
-    border-bottom: 1px solid $darkblue;
-  }
 }
 
 .blue-first {
   background-color: $blue;
-  &.dark {
-    background-color: $darkblue;
-  }
 }
 
 .green-second {
   border: 1px solid $green;
   color: $green;
-  &.dark {
-    color: $darkgreen;
-    border-bottom: 1px solid $darkgreen;
-  }
 }
 
 .green-first {
   background-color: $green;
-  &.dark {
-    background-color: $darkgreen;
-  }
 }
 
 .red-second {
   border: 1px solid $red;
   color: $red;
-  &.dark {
-    color: $darkred;
-    border-bottom: 1px solid $darkred;
-  }
 }
 
 .red-first {
   background-color: $red;
-  &.dark {
-    background-color: $darkred;
-  }
 }
 
 .normal-first {
@@ -215,7 +236,52 @@
 
   &.dark {
     background-color: $darknavigation;
-    box-shadow: none;
+  }
+
+  &.dark nav div a {
+    color: $darklighttext;
+    background-color: $darknavigation;
+
+    &:nth-child(1) {
+      border-top: 1px solid #ddd;
+    }
+
+    &:nth-child(2) {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    &:nth-child(3) {
+      border-bottom: 1px solid #ddd;
+    }
+
+    &:nth-child(1):hover {
+      background-color: $darkblue;
+    }
+
+    &:nth-child(2):hover {
+      background-color: $darkgreen;
+    }
+
+    &:nth-child(3):hover {
+      background-color: $darkred;
+    }
+
+    &:nth-child(1).active {
+      background-color: $darkblue;
+    }
+
+    &:nth-child(2).active {
+      background-color: $darkgreen;
+    }
+
+    &:nth-child(3).active {
+      background-color: $darkred;
+    }
+  }
+
+  &.dark svg {
+    color: $darktext;
   }
 
   nav {
@@ -237,56 +303,41 @@
         align-items: center;
         justify-content: center;
 
-        &.dark {
-          color: $darklighttext;
-          background-color: $darknavigation;
+        &:nth-child(1) {
+          border-top: 1px solid #888;
         }
 
         &:nth-child(2) {
-          border-top: 2px solid #ddd;
-          border-bottom: 2px solid #ddd;
+          border-top: 1px solid #888;
+          border-bottom: 1px solid #888;
+        }
+
+        &:nth-child(3) {
+          border-bottom: 1px solid #888;
         }
 
         &:nth-child(1):hover {
           background-color: $blue;
-          &.dark {
-            background-color: $darkblue;
-          }
         }
 
         &:nth-child(2):hover {
           background-color: $green;
-          &.dark {
-            background-color: $darkgreen;
-          }
         }
 
         &:nth-child(3):hover {
           background-color: $red;
-          &.dark {
-            background-color: $darkred;
-          }
         }
 
         &:nth-child(1).active {
           background-color: $blue;
-          &.dark {
-            background-color: $darkblue;
-          }
         }
 
         &:nth-child(2).active {
           background-color: $green;
-          &.dark {
-            background-color: $darkgreen;
-          }
         }
 
         &:nth-child(3).active {
           background-color: $red;
-          &.dark {
-            background-color: $darkred;
-          }
         }
 
         &.active {
@@ -301,9 +352,6 @@
     display: flex;
     margin: 0 16px;
     color: $text;
-    &.dark {
-      color: $darktext;
-    }
   }
 
   nav.open {
@@ -311,27 +359,28 @@
       color: orangered;
     }
   }
-}
-
-.blue-svg-color {
-  color: $blue;
-  &.dark {
+  &.dark .blue-svg-color:hover {
     color: $darkblue;
   }
+
+  &.dark .green-svg-color:hover {
+    color: $darkgreen;
+  }
+
+  &.dark .red-svg-color:hover {
+    color: $darkred;
+  }
+}
+.blue-svg-color {
+  color: $blue;
 }
 
 .green-svg-color {
   color: $green;
-  &.dark {
-    color: $darkgreen;
-  }
 }
 
 .red-svg-color {
   color: $red;
-  &.dark {
-    color: $darkred;
-  }
 }
 
 .normal {

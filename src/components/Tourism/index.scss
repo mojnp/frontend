@@ -1,6 +1,35 @@
 @import '../../index.scss';
 
 .Tourism {
+  &.dark {
+    .Tourism__title {
+      h1 {
+        color: $darktext;
+      }
+
+      span {
+        color: $darklighttext;
+      }
+    }
+
+    .Tourism__card-container {
+      a {
+        h3 {
+          color: $darklighttext;
+
+          &:hover {
+            color: $darkgreen;
+          }
+        }
+        &:hover {
+          h3 {
+            color: $darkgreen;
+          }
+        }
+      }
+    }
+  }
+
   .Tourism__title {
     display: flex;
     justify-content: center;
@@ -36,6 +65,9 @@
       &:hover {
         transition: 500ms;
         transform: translateY(-5px);
+        h3 {
+          color: $green;
+        }
       }
 
       h3 {
@@ -45,17 +77,9 @@
         font-family: Georgia, Times, 'Times New Roman', serif;
         margin: 12px 0 4px 12px;
 
-        &.dark {
-          color: $darktext;
-        }
-
         &:hover {
           transition: 300ms;
           color: $green;
-
-          &.dark {
-            color: $darkgreen;
-          }
         }
       }
     }
@@ -85,6 +109,34 @@
 }
 
 .TourismMobile {
+  &.dark {
+    .TourismMobile__title {
+      h1 {
+        color: $darktext;
+      }
+
+      span {
+        color: $darklighttext;
+      }
+    }
+
+    .TourismMobile__card-container {
+      a {
+        h3 {
+          color: $darklighttext;
+
+          &:hover {
+            color: $darkgreen;
+          }
+        }
+        &:hover {
+          h3 {
+            color: $darkgreen;
+          }
+        }
+      }
+    }
+  }
   .TourismMobile__title {
     display: flex;
     justify-content: center;
@@ -128,17 +180,9 @@
         margin: 12px 0 4px 12px;
         font-family: Georgia, Times, 'Times New Roman', serif;
 
-        &.dark {
-          color: $darktext;
-        }
-
         &:hover {
           transition: 300ms;
           color: $green;
-
-          &.dark {
-            color: $darkgreen;
-          }
         }
       }
     }
@@ -173,5 +217,16 @@
       transform: translateY(0);
       transition: opacity 1s ease, transform 1s ease;
     }
+  }
+}
+
+.Tourism-Section {
+  &.dark {
+    p {
+      color: $darktext;
+    }
+  }
+  p {
+    color: $text;
   }
 }

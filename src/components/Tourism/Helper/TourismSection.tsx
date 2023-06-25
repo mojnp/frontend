@@ -3,18 +3,18 @@ import { TourismCards } from './TourismCard';
 
 interface TourismSectionProps {
   cards: TourismCards[];
-  colorScheme: any;
+  currentTheme: any;
 }
 
 const TourismSection: React.FC<TourismSectionProps> = ({
   cards,
-  colorScheme,
+  currentTheme,
 }) => {
   const { id } = useParams<{ id: string }>();
   const renderItem = cards.find(card => card.id.split('?')[0] === id);
 
   return (
-    <div className={`Tourism-Section ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`Tourism-Section ${currentTheme}`}>
       <p>{renderItem?.title}</p>
     </div>
   );

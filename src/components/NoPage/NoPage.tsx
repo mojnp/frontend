@@ -1,8 +1,8 @@
-import './NoPage.css';
+import './NoPage.scss';
 
-const NoPage = ({ colorScheme }: any) => {
+const NoPage = ({ currentTheme }: any) => {
   return (
-    <div className={`NoPage ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`NoPage ${currentTheme}`}>
       <h2>Not Found or You do not have permission.</h2>
       <h1>Error 404.</h1>
     </div>

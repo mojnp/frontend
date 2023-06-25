@@ -12,6 +12,40 @@
     background-color: $darknavigation;
   }
 
+  &.dark input {
+    background-color: $darknavigation;
+    color: $darktext;
+
+    &::placeholder {
+      color: rgb(210, 210, 210);
+    }
+  }
+
+  &.dark button {
+    background-color: $darknavigation;
+  }
+
+  &.dark .blue-svg-color {
+    &:hover,
+    &:focus {
+      color: $darkblue;
+    }
+  }
+
+  &.dark .green-svg-color {
+    &:hover,
+    &:focus {
+      color: $darkgreen;
+    }
+  }
+
+  &.dark .red-svg-color {
+    &:hover,
+    &:focus {
+      color: $darkred;
+    }
+  }
+
   input {
     background-color: $navigation;
     color: $text;
@@ -23,16 +57,8 @@
     border: none;
     outline: none;
 
-    &.dark {
-      background-color: $darknavigation;
-    }
-
     &::placeholder {
       color: rgb(180, 180, 180);
-
-      &.dark {
-        color: rgb(100, 100, 100);
-      }
     }
   }
 
@@ -42,10 +68,6 @@
     background-color: $navigation;
     width: 20%;
     margin: 0;
-
-    &.dark {
-      background-color: $darknavigation;
-    }
 
     svg {
       font-size: 2.2vw;
@@ -58,10 +80,6 @@
   &:hover,
   &:focus {
     color: $blue;
-
-    &.dark {
-      color: $darkblue;
-    }
   }
 }
 
@@ -69,10 +87,6 @@
   &:hover,
   &:focus {
     color: $green;
-
-    &.dark {
-      color: $darkgreen;
-    }
   }
 }
 
@@ -80,10 +94,6 @@
   &:hover,
   &:focus {
     color: $red;
-
-    &.dark {
-      color: $darkred;
-    }
   }
 }
 
@@ -105,6 +115,19 @@
     background-color: $darknavigation;
   }
 
+  &.dark input {
+    background-color: $darknavigation;
+    color: rgb(210, 210, 210);
+
+    &::placeholder {
+      color: rgb(210, 210, 210);
+    }
+  }
+
+  &.dark button {
+    background-color: $darknavigation;
+  }
+
   input {
     background-color: $navigation;
     color: $text;
@@ -115,11 +138,6 @@
     transition: 500ms;
     border: none;
     outline: none;
-
-    &.dark {
-      background-color: $darknavigation;
-      color: $darktext;
-    }
   }
 
   button {
@@ -128,10 +146,6 @@
     background-color: $navigation;
     width: 20%;
     margin: 0;
-
-    &.dark {
-      background-color: $darknavigation;
-    }
 
     svg {
       font-size: 32px;

@@ -1,0 +1,283 @@
+@import '../../index.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.Home-Desktop {
+  &.dark {
+    color: $darktext;
+  }
+  &.dark .Home-Main {
+    .text-side {
+      .title {
+        color: $darklightertext;
+      }
+      .sub-title {
+        color: $darktext;
+      }
+      .description {
+        color: $darklightertext;
+        span {
+          color: $darktext;
+        }
+      }
+      .mini-description {
+        color: $darklightertext;
+        span {
+          color: $darklighttext;
+        }
+      }
+      .discover-btn {
+        background-color: $darkblue;
+      }
+    }
+    .images-side {
+      .top-left-image-card {
+        border: 1px solid white;
+      }
+      .bottom-left-image-card {
+        border: 1px solid white;
+      }
+      .bottom-right-image-card {
+        border: 1px solid white;
+      }
+      .top-right-image-card {
+        border: 1px solid white;
+      }
+    }
+  }
+  .Home-Main {
+    margin-top: 24px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    .text-side {
+      margin-top: 50px;
+      font-family: 'Roboto', sans-serif;
+
+      .title {
+        color: $lightertext;
+        font-size: 45px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+
+      .sub-title {
+        color: $text;
+        font-size: 55px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        color: $lightertext;
+        width: 270px;
+        font-size: 18px;
+        margin-bottom: 20px;
+
+        span {
+          color: $text;
+          font-weight: 600;
+        }
+      }
+
+      .mini-description {
+        color: $lightertext;
+        font-size: 15px;
+        margin-bottom: 25px;
+
+        span {
+          color: $lighttext;
+          font-weight: 600;
+        }
+      }
+
+      .discover-btn {
+        background-color: $blue;
+        padding: 15px;
+        border: none;
+        border-radius: 0.25rem;
+        color: rgba(255, 255, 255, 0.781);
+        font-size: 20px;
+
+        &:hover {
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+    .images-side {
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      div {
+        border-radius: 25px;
+      }
+      .top-left-image-card {
+        border: 1px solid black;
+        height: 250px;
+        margin-right: 40px;
+      }
+      .bottom-left-image-card {
+        border: 1px solid black;
+        height: 160px;
+        margin-right: 40px;
+      }
+      .top-right-image-card {
+        border: 1px solid black;
+        height: 160px;
+      }
+      .bottom-right-image-card {
+        border: 1px solid black;
+        height: 250px;
+      }
+    }
+  }
+}
+
+.Home-Mobile {
+  &.dark {
+    color: $darktext;
+  }
+
+  &.dark .Home-Main-Mobile {
+    .text-side {
+      .title {
+        color: $darklightertext;
+      }
+
+      .sub-title {
+        color: $darktext;
+      }
+
+      .description {
+        color: $darklightertext;
+
+        span {
+          color: $darktext;
+        }
+      }
+
+      .mini-description {
+        color: $darklightertext;
+
+        span {
+          color: $darktext;
+        }
+      }
+
+      .discover-btn {
+        background-color: $darkblue;
+      }
+    }
+
+    .images-side {
+      .top-left-image-card {
+        border: 1px solid white;
+      }
+      .top-right-image-card {
+        border: 1px solid white;
+      }
+      .bottom-left-image-card {
+        border: 1px solid white;
+      }
+      .bottom-right-image-card {
+        border: 1px solid white;
+      }
+    }
+  }
+
+  .Home-Main-Mobile {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+
+    .text-side {
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+
+      .title {
+        color: $lightertext;
+        font-size: 35px;
+        font-weight: 400;
+        margin-bottom: 6px;
+        letter-spacing: 1px;
+      }
+
+      .sub-title {
+        color: $text;
+        font-size: 45px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+      }
+
+      .description {
+        color: $lightertext;
+        font-size: 19px;
+        margin-bottom: 13px;
+
+        span {
+          color: $text;
+          font-weight: 600;
+        }
+      }
+      .mini-description {
+        color: $lightertext;
+        font-size: 15px;
+        margin-bottom: 15px;
+
+        span {
+          color: $text;
+          font-weight: 600;
+        }
+      }
+
+      .discover-btn {
+        background-color: $blue;
+        padding: 15px;
+        font-size: 19px;
+        border: none;
+        border-radius: 0.25rem;
+        color: rgba(255, 255, 255, 0.781);
+
+        &:hover {
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .images-side {
+      width: 90%;
+      margin: 24px auto 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      div {
+        border-radius: 25px;
+      }
+      .top-left-image-card {
+        border: 1px solid black;
+        height: 145px;
+        margin-right: 25px;
+      }
+      .bottom-left-image-card {
+        border: 1px solid black;
+        height: 85px;
+        margin-right: 25px;
+      }
+      .top-right-image-card {
+        border: 1px solid black;
+        height: 85px;
+      }
+      .bottom-right-image-card {
+        border: 1px solid black;
+        height: 145px;
+      }
+    }
+  }
+}

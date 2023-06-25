@@ -1,30 +1,32 @@
+import HomeHero from './Helper/HomeHero';
+import HomeHeroMobile from './Helper/HomeHeroMobile';
 import './index.scss';
 import { useViewportSize } from '@mantine/hooks';
 
-const HomeDesktop = ({ colorScheme }: any) => {
+const HomeDesktop = ({ currentTheme }: any) => {
   return (
-    <div className={`Home ${colorScheme === 'light' ? '' : 'dark'}`}>
-      Home Desktop
+    <div className={`Home-Desktop ${currentTheme}`}>
+      <HomeHero />
     </div>
   );
 };
 
-const HomeMobile = ({ colorScheme }: any) => {
+const HomeMobile = ({ currentTheme }: any) => {
   return (
-    <div className={`HomeMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
-      Home Mobile
+    <div className={`Home-Mobile ${currentTheme}`}>
+      <HomeHeroMobile />
     </div>
   );
 };
 
-const Home = ({ colorScheme }: any) => {
+const Home = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <HomeMobile colorScheme={colorScheme} />
+        <HomeMobile currentTheme={currentTheme} />
       ) : (
-        <HomeDesktop colorScheme={colorScheme} />
+        <HomeDesktop currentTheme={currentTheme} />
       )}
     </>
   );

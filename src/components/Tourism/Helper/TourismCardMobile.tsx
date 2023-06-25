@@ -11,14 +11,12 @@ interface TourismCardProps {
   cards: TourismCards;
   onClick: (cards: TourismCards) => void;
   cardRefs: React.MutableRefObject<any[]>;
-  colorScheme: any;
 }
 
 const TourismCardMobile: React.FC<TourismCardProps> = ({
   cards,
   onClick,
   cardRefs,
-  colorScheme,
 }) => {
   const cardRef = useRef(null);
 
@@ -38,14 +36,8 @@ const TourismCardMobile: React.FC<TourismCardProps> = ({
       onClick={handleClick}
       to={cards.id}
     >
-      <div
-        className={`TourismMobile__card ${
-          colorScheme === 'light' ? '' : 'dark'
-        }`}
-      ></div>
-      <h3 className={` ${colorScheme === 'light' ? '' : 'dark'}`}>
-        {cards.title}
-      </h3>
+      <div className="TourismMobile__card"></div>
+      <h3>{cards.title}</h3>
     </Link>
   );
 };

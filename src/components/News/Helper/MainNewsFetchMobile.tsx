@@ -3,7 +3,7 @@ import MainNewsMobile from './MainNewsMobile';
 import axios from 'axios';
 import { NewsItems } from './NewsItem';
 
-const MainNewsFetchMobile = ({ colorScheme }: any) => {
+const MainNewsFetchMobile = ({ currentTheme }: any) => {
   const [newsItems, setNewsItems] = useState<NewsItems[]>([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const MainNewsFetchMobile = ({ colorScheme }: any) => {
 
   return (
     <>
-      <MainNewsMobile colorScheme={colorScheme} news={newsItems} />
+      <MainNewsMobile news={newsItems} currentTheme={currentTheme} />
     </>
   );
 };

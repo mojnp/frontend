@@ -7,7 +7,7 @@ import { RxAvatar, RxHamburgerMenu } from 'react-icons/rx';
 import { VscChromeClose } from 'react-icons/vsc';
 import { useEffect, useState } from 'react';
 
-const HeaderDesktop = ({ colorScheme }: any) => {
+const HeaderDesktop = ({ currentTheme }: any) => {
   const location = useLocation();
   const { pathname } = location;
 
@@ -29,9 +29,7 @@ const HeaderDesktop = ({ colorScheme }: any) => {
   }
 
   return (
-    <header
-      className={`Header-Desktop ${colorScheme === 'light' ? '' : 'dark'}`}
-    >
+    <header className={`Header-Desktop ${currentTheme}`}>
       <div>
         <Link to="/">
           <img src={Logo} alt="" />
@@ -52,7 +50,7 @@ const HeaderDesktop = ({ colorScheme }: any) => {
   );
 };
 
-const HeaderMobile = ({ colorScheme }: any) => {
+const HeaderMobile = ({ currentTheme }: any) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
   const { pathname } = location;
@@ -84,9 +82,7 @@ const HeaderMobile = ({ colorScheme }: any) => {
   }
 
   return (
-    <header
-      className={`Header-Mobile ${colorScheme === 'light' ? '' : 'dark'}`}
-    >
+    <header className={`Header-Mobile ${currentTheme}`}>
       <RxAvatar className={`svg-icon ${buttonColor}`} />
       <Link style={{ width: '36px', height: '44px' }} to="/">
         <img src={Logo} alt="" width="36px" height="44px" />
@@ -111,14 +107,14 @@ const HeaderMobile = ({ colorScheme }: any) => {
   );
 };
 
-const Header = ({ colorScheme }: any) => {
+const Header = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <HeaderMobile colorScheme={colorScheme} />
+        <HeaderMobile currentTheme={currentTheme} />
       ) : (
-        <HeaderDesktop colorScheme={colorScheme} />
+        <HeaderDesktop currentTheme={currentTheme} />
       )}
     </>
   );

@@ -1,11 +1,9 @@
 import './index.scss';
 import { useViewportSize } from '@mantine/hooks';
 
-const FooterDesktop = ({ colorScheme }: any) => {
+const FooterDesktop = ({ currentTheme }: any) => {
   return (
-    <footer
-      className={`Footer-Desktop ${colorScheme === 'light' ? '' : 'dark'}`}
-    >
+    <footer className={`Footer-Desktop ${currentTheme}`}>
       <p>
         Designed and built by{' '}
         <a href="https://www.centarnit.com" target="_blank" rel="noreferrer">
@@ -17,11 +15,9 @@ const FooterDesktop = ({ colorScheme }: any) => {
   );
 };
 
-const FooterMobile = ({ colorScheme }: any) => {
+const FooterMobile = ({ currentTheme }: any) => {
   return (
-    <footer
-      className={`Footer-Mobile ${colorScheme === 'light' ? '' : 'dark'}`}
-    >
+    <footer className={`Footer-Mobile ${currentTheme}`}>
       <p>
         Designed and built by{' '}
         <a href="https://www.centarnit.com" target="_blank" rel="noreferrer">
@@ -33,14 +29,14 @@ const FooterMobile = ({ colorScheme }: any) => {
   );
 };
 
-const Footer = ({ colorScheme }: any) => {
+const Footer = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   return (
     <>
       {width <= 786 ? (
-        <FooterMobile colorScheme={colorScheme} />
+        <FooterMobile currentTheme={currentTheme} />
       ) : (
-        <FooterDesktop colorScheme={colorScheme} />
+        <FooterDesktop currentTheme={currentTheme} />
       )}
     </>
   );

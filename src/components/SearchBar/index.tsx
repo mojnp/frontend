@@ -7,13 +7,13 @@ import { useLocation } from 'react-router-dom';
 interface SearchBarProps {
   onSearch: (query: string) => void;
   placeholder: string;
-  colorScheme: any;
+  currentTheme: any;
 }
 
 const SearchBarDesktop = ({
   onSearch,
   placeholder,
-  colorScheme,
+  currentTheme,
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -47,7 +47,7 @@ const SearchBarDesktop = ({
   }, [location.pathname]);
 
   return (
-    <div className={`SearchBar ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`SearchBar ${currentTheme}`}>
       <button onClick={handleSearch}>
         <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
       </button>
@@ -65,7 +65,7 @@ const SearchBarDesktop = ({
 const SearchBarMobile = ({
   onSearch,
   placeholder,
-  colorScheme,
+  currentTheme,
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -99,7 +99,7 @@ const SearchBarMobile = ({
   }, [location.pathname]);
 
   return (
-    <div className={`SearchBarMobile ${colorScheme === 'light' ? '' : 'dark'}`}>
+    <div className={`SearchBarMobile ${currentTheme}`}>
       <button onClick={handleSearch}>
         <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
       </button>
@@ -114,7 +114,7 @@ const SearchBarMobile = ({
   );
 };
 
-const SearchBar = ({ colorScheme }: any) => {
+const SearchBar = ({ currentTheme }: any) => {
   const { width } = useViewportSize();
   const [, setSearchQuery] = useState('');
 
@@ -127,13 +127,13 @@ const SearchBar = ({ colorScheme }: any) => {
         <SearchBarMobile
           onSearch={handleSearchQueryChange}
           placeholder="Pretrazite sajt..."
-          colorScheme={colorScheme}
+          currentTheme={currentTheme}
         />
       ) : (
         <SearchBarDesktop
           onSearch={handleSearchQueryChange}
           placeholder="Pretrazite sajt..."
-          colorScheme={colorScheme}
+          currentTheme={currentTheme}
         />
       )}
     </>

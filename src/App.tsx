@@ -10,65 +10,59 @@ import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import MainNewsFetchMobile from './components/News/Helper/MainNewsFetchMobile';
 import TourismSection from './components/Tourism/Helper/TourismSection';
-import {
-  MantineProvider,
-  ColorSchemeProvider,
-  ColorScheme,
-} from '@mantine/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHotkeys } from '@mantine/hooks';
+import './index.scss';
 
 const App = () => {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleColorScheme = (value?: ColorScheme) => {
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(prevMode => !prevMode);
   };
 
-  useHotkeys([['shift+T', () => toggleColorScheme()]]);
+  const currentTheme = isDarkMode ? 'dark' : 'light';
+
+  useHotkeys([['shift+T', () => toggleTheme()]]);
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        withGlobalStyles
-        withCSSVariables
-        withNormalizeCSS
-        theme={{ colorScheme }}
-      >
-        <>
-          <ScrollToTop />
-          <SearchBar colorScheme={colorScheme} />
-          <Header colorScheme={colorScheme} />
-          <Routes>
-            <Route path="/" element={<Home colorScheme={colorScheme} />} />
-            <Route path="/news" element={<News colorScheme={colorScheme} />} />
-            <Route
-              path="/news/:linkId"
-              element={<MainNewsFetchMobile colorScheme={colorScheme} />}
-            />
-            <Route
-              path="/tourism"
-              element={<Tourism colorScheme={colorScheme} />}
-            />
-            <Route
-              path="/tourism/:id"
-              element={
-                <TourismSection colorScheme={colorScheme} cards={dummyData} />
-              }
-            />
-            <Route
-              path="/report-a-problem"
-              element={<ReportProblem colorScheme={colorScheme} />}
-            />
-            <Route path="*" element={<NoPage colorScheme={colorScheme} />} />
-          </Routes>
-          <Footer colorScheme={colorScheme} />
-        </>
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <div className={currentTheme}>
+      <ScrollToTop />
+      <SearchBar currentTheme={currentTheme} />
+      <Header currentTheme={currentTheme} />
+      <Routes>
+        <Route path="/" element={<Home currentTheme={currentTheme} />} />
+        <Route path="/news" element={<News currentTheme={currentTheme} />} />
+        <Route
+          path="/news/:linkId"
+          element={<MainNewsFetchMobile currentTheme={currentTheme} />}
+        />
+        <Route
+          path="/tourism"
+          element={<Tourism currentTheme={currentTheme} />}
+        />
+        <Route
+          path="/tourism/:id"
+          element={
+            <TourismSection currentTheme={currentTheme} cards={dummyData} />
+          }
+        />
+        <Route
+          path="/report-a-problem"
+          element={<ReportProblem currentTheme={currentTheme} />}
+        />
+        <Route path="*" element={<NoPage currentTheme={currentTheme} />} />
+      </Routes>
+      <Footer currentTheme={currentTheme} />
+    </div>
   );
 };
 
