@@ -7,9 +7,11 @@
   background-color: $navigation;
   width: 50%;
   margin: 0 auto;
+  border: 1px solid #e6e6e6;
 
   &.dark {
     background-color: $darknavigation;
+    border: 1px solid #2e2e2e;
   }
 
   &.dark input {
@@ -110,9 +112,11 @@
   height: 48px;
   background-color: $navigation;
   width: 100%;
+  border: 1px solid #e6e6e6;
 
   &.dark {
     background-color: $darknavigation;
+    border: 1px solid #2e2e2e;
   }
 
   &.dark input {

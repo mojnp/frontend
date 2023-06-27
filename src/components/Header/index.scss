@@ -16,11 +16,11 @@
   top: 0;
   z-index: 1000;
   height: 10vh;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid #e6e6e6;
 
   &.dark {
     background-color: $darknavigation;
-    box-shadow: none;
+    border: 1px solid #2e2e2e;
   }
 
   &.dark nav a {
@@ -225,7 +225,7 @@
 .Header-Mobile {
   background-color: $navigation;
   margin: 0 0 12px 0;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 5px;
+  border: 1px solid #e6e6e6;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -236,6 +236,7 @@
 
   &.dark {
     background-color: $darknavigation;
+    border: 1px solid #2e2e2e;
   }
 
   &.dark nav div a {

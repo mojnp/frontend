@@ -14,18 +14,39 @@
 
     .Tourism__card-container {
       a {
+        &:hover {
+          &:nth-child(3n + 1) {
+            svg {
+              color: $darkblue;
+            }
+
+            h3 {
+              color: $darkblue;
+            }
+          }
+
+          &:nth-child(3n + 2) {
+            svg {
+              color: $darkgreen;
+            }
+
+            h3 {
+              color: $darkgreen;
+            }
+          }
+        }
+
+        svg {
+          color: $darklightertext;
+        }
+
         h3 {
           color: $darklighttext;
+        }
+      }
 
-          &:hover {
-            color: $darkgreen;
-          }
-        }
-        &:hover {
-          h3 {
-            color: $darkgreen;
-          }
-        }
+      .Tourism__card {
+        border: 2.5px $darklightertext solid;
       }
     }
   }
@@ -53,45 +74,82 @@
   }
 
   .Tourism__card-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    width: 80%;
+    margin: 0 auto;
 
     a {
       transition: 300ms;
-      margin: 12px 22px;
+      margin: 22px 0;
 
       &:hover {
         transition: 500ms;
         transform: translateY(-5px);
-        h3 {
-          color: $green;
+
+        &:nth-child(3n + 1) {
+          svg {
+            color: $blue;
+          }
+
+          h3 {
+            color: $blue;
+          }
+        }
+
+        &:nth-child(3n + 2) {
+          svg {
+            color: $green;
+          }
+
+          h3 {
+            color: $green;
+          }
+        }
+
+        &:nth-child(3n + 3) {
+          svg {
+            color: $red;
+          }
+
+          h3 {
+            color: $red;
+          }
         }
       }
 
       h3 {
         transition: 300ms;
-        color: $text;
-        font-size: 22px;
+        color: $lighttext;
+        font-size: 1.7vw;
+        text-align: center;
         font-family: Georgia, Times, 'Times New Roman', serif;
-        margin: 12px 0 4px 12px;
+        margin: 12px 0 4px 0;
 
         &:hover {
-          transition: 300ms;
           color: $green;
         }
       }
     }
 
     .Tourism__card {
-      border-radius: 30px;
+      border-radius: 15px;
       padding: 12px 18px;
       height: 16vw;
       width: 16vw;
-      background-color: rgb(200, 200, 200);
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px #dfdfdf solid;
+
+      svg {
+        width: 50%;
+        height: 50%;
+        stroke-width: 1;
+        transition: 300ms;
+        color: $lighttext;
+      }
     }
   }
 
@@ -122,21 +180,53 @@
 
     .TourismMobile__card-container {
       a {
+        &:hover {
+          &:nth-child(3n + 1) {
+            svg {
+              color: $darkblue;
+            }
+
+            h3 {
+              color: $darkblue;
+            }
+          }
+
+          &:nth-child(3n + 2) {
+            svg {
+              color: $darkgreen;
+            }
+
+            h3 {
+              color: $darkgreen;
+            }
+          }
+
+          &:nth-child(3n + 3) {
+            svg {
+              color: $darkred;
+            }
+
+            h3 {
+              color: $darkred;
+            }
+          }
+        }
+
+        svg {
+          color: $darklightertext;
+        }
+
         h3 {
           color: $darklighttext;
+        }
+      }
 
-          &:hover {
-            color: $darkgreen;
-          }
-        }
-        &:hover {
-          h3 {
-            color: $darkgreen;
-          }
-        }
+      .TourismMobile__card {
+        border: 2.5px #585858 solid;
       }
     }
   }
+
   .TourismMobile__title {
     display: flex;
     justify-content: center;
@@ -159,10 +249,9 @@
   }
 
   .TourismMobile__card-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
 
     a {
       transition: 300ms;
@@ -171,14 +260,45 @@
       &:hover {
         transition: 500ms;
         transform: translateY(-5px);
+
+        &:nth-child(3n + 1) {
+          svg {
+            color: $blue;
+          }
+
+          h3 {
+            color: $blue;
+          }
+        }
+
+        &:nth-child(3n + 2) {
+          svg {
+            color: $green;
+          }
+
+          h3 {
+            color: $green;
+          }
+        }
+
+        &:nth-child(3n + 3) {
+          svg {
+            color: $red;
+          }
+
+          h3 {
+            color: $red;
+          }
+        }
       }
 
       h3 {
         transition: 300ms;
-        color: $text;
+        color: $lighttext;
         font-size: 21px;
         margin: 12px 0 4px 12px;
         font-family: Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
 
         &:hover {
           transition: 300ms;
@@ -188,21 +308,22 @@
     }
 
     .TourismMobile__card {
-      border-radius: 30px;
+      border-radius: 15px;
       margin: 12px 0;
       padding: 12px 18px;
-      height: 270px;
-      width: 270px;
-      background-color: rgb(200, 200, 200);
+      height: 70vw;
+      width: 70vw;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px #dfdfdf solid;
 
-      @media screen and (max-width: 330px) {
-        padding: 12px 0;
-        margin: 4px 0;
-        width: 200px;
-        height: 200px;
-        font-size: 16px;
+      svg {
+        width: 50%;
+        height: 50%;
+        stroke-width: 1;
+        transition: 300ms;
+        color: $lighttext;
       }
     }
   }

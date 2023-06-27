@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export interface TourismCards {
   id: string;
   title: string;
+  logo: any;
   isAnimated: Boolean;
 }
 
@@ -37,7 +38,7 @@ const TourismCard: React.FC<TourismCardProps> = ({
       onClick={handleClick}
       to={cards.id}
     >
-      <div className="Tourism__card"></div>
+      <div className="Tourism__card">{cards.logo}</div>
       <h3>{cards.title}</h3>
     </Link>
   );
