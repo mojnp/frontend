@@ -10,6 +10,8 @@ import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import MainNewsFetchMobile from './components/News/Helper/MainNewsFetchMobile';
 import TourismSection from './components/Tourism/Helper/TourismSection';
+import Login from './components/Header/Helper/Authentication/Login';
+import Signup from './components/Header/Helper/Authentication/Signup';
 import { useEffect, useState } from 'react';
 import { useHotkeys } from '@mantine/hooks';
 import './index.scss';
@@ -59,7 +61,10 @@ const App = () => {
           path="/report-a-problem"
           element={<ReportProblem currentTheme={currentTheme} />}
         />
-        <Route path="*" element={<NoPage currentTheme={currentTheme} />} />
+        <Route path="/report-a-problem" element={<ReportProblem />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer currentTheme={currentTheme} />
     </div>

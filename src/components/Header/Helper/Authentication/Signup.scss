@@ -1,0 +1,86 @@
+.main-signup-page {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10vh;
+  font-family: "Roboto", sans-serif;
+  .signup-container {
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  h2 {
+    color: black;
+    font-size: 45px;
+    padding-bottom: 5vh;
+    letter-spacing: 4px;
+  }
+  .inputs-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .input-wrappers {
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        border-radius: 2px;
+        border: 2px solid gray;
+        height: 30px;
+        outline: none;
+        border-radius: 5px;
+        margin-bottom: 35px;
+        width: 45%;
+        padding: 2% 0%;
+        padding-left: 5%;
+        font-size: 2vw;
+        max-width: 47.5%;
+
+        &:nth-child(3n + 1) {
+            margin-right: 18px;
+        }
+
+        &:nth-child(3n + 2) {
+            margin-left: 18px;
+        }
+      }
+    }
+
+    .mobile-input-wrappers{
+        input {
+            max-width: 40vw;
+            margin-bottom: 1vh;
+            &:nth-child(3n + 1) {
+                margin-right: 0.5vw;
+            }
+    
+            &:nth-child(3n + 2) {
+                margin-left: 0.5vw;
+            }
+        }
+    }
+  }
+  .submit-btn {
+    letter-spacing: 1px;
+    color: white;
+    background-color: black;
+    font-size: 17px;
+    margin-bottom: 35px;
+    border-radius: 3px;
+    cursor: pointer;
+    min-width: 50%;
+    min-height: 5vh;
+    font-size: 25px;
+  }
+  .privacy {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+    width: 290px;
+  }
+}

@@ -3,50 +3,36 @@ import TourismCardContainer from './Helper/TourismCardContainer';
 import TourismCardContainerMobile from './Helper/TourismCardContainerMobile';
 import { useEffect, useRef } from 'react';
 import { useViewportSize } from '@mantine/hooks';
-import {
-  IconBuildingChurch,
-  IconBuildingMosque,
-  IconBuildingSkyscraper,
-  IconMapPin,
-  IconToolsKitchen2,
-  IconWreckingBall,
-} from '@tabler/icons-react';
 
 export const dummyData = [
   {
     id: 'islamski-spomenici1',
     title: 'Islamski Spomenici',
-    logo: <IconBuildingMosque />,
     isAnimated: false,
   },
   {
     id: 'hriscanski-spomenici2',
     title: 'Hriscanski Spomenici',
-    logo: <IconBuildingChurch />,
     isAnimated: false,
   },
   {
     id: 'sruseni-spomenici3',
     title: 'Sruseni Spomenici',
-    logo: <IconWreckingBall />,
     isAnimated: false,
   },
   {
     id: 'restorani4',
     title: 'Restorani',
-    logo: <IconToolsKitchen2 />,
     isAnimated: false,
   },
   {
     id: 'hoteli5',
     title: 'Hoteli',
-    logo: <IconBuildingSkyscraper />,
     isAnimated: false,
   },
   {
     id: 'mapa6',
     title: 'Mape',
-    logo: <IconMapPin />,
     isAnimated: false,
   },
 ];

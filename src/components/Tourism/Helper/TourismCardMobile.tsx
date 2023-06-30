@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 export interface TourismCards {
   id: string;
   title: string;
-  logo: any;
   isAnimated: Boolean;
 }
 
@@ -37,7 +36,7 @@ const TourismCardMobile: React.FC<TourismCardProps> = ({
       onClick={handleClick}
       to={cards.id}
     >
-      <div className="TourismMobile__card">{cards.logo}</div>
+      <div className="TourismMobile__card"></div>
       <h3>{cards.title}</h3>
     </Link>
   );

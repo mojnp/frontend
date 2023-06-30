@@ -11,8 +11,8 @@ const HeaderDesktop = ({ currentTheme }: any) => {
   const location = useLocation();
   const { pathname } = location;
 
-  let logInButtonClass = '';
-  let signInButtonClass = '';
+  let logInButtonClass = "";
+  let signInButtonClass = "";
 
   if (pathname.includes('/news')) {
     logInButtonClass = 'blue-first';
@@ -24,8 +24,8 @@ const HeaderDesktop = ({ currentTheme }: any) => {
     logInButtonClass = 'red-first';
     signInButtonClass = 'red-second';
   } else {
-    logInButtonClass = 'normal-first';
-    signInButtonClass = 'normal-second';
+    logInButtonClass = "normal-first";
+    signInButtonClass = "normal-second";
   }
 
   return (
@@ -42,8 +42,8 @@ const HeaderDesktop = ({ currentTheme }: any) => {
       </nav>
       <div className="buttons">
         <div className="buttons-container">
-          <button className={logInButtonClass}>Log in</button>
-          <button className={signInButtonClass}>Sign up</button>
+          <HeaderNavLink link="/login" textContent="Login" />
+          <HeaderNavLink link="/signup" textContent="Sign up" />
         </div>
       </div>
     </header>
@@ -52,6 +52,8 @@ const HeaderDesktop = ({ currentTheme }: any) => {
 
 const HeaderMobile = ({ currentTheme }: any) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpenAuth, setIsDropdownOpenAuth] = useState(false);
+  const [isDropdownOpenDisabled] = useState(false)
   const location = useLocation();
   const { pathname } = location;
 
@@ -65,11 +67,27 @@ const HeaderMobile = ({ currentTheme }: any) => {
     }
   }, [isDropdownOpen]);
 
+  useEffect(() => {
+    if (isDropdownOpenAuth) {
+      document.body.style.position = "fixed";
+      document.body.style.width = "100vw";
+    } else {
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+  }, [isDropdownOpenAuth]);
+
   const toggleDropdown = () => {
+    setIsDropdownOpenAuth(isDropdownOpenDisabled)
     setIsDropdownOpen((prevState: any) => !prevState);
   };
 
-  let buttonColor = '';
+  const toggleDropdownAuth = () => {
+    setIsDropdownOpen(isDropdownOpenDisabled)
+    setIsDropdownOpenAuth((prevState: any) => !prevState);
+  };
+
+  let buttonColor = "";
 
   if (pathname.includes('/news')) {
     buttonColor = 'blue-svg-color';
@@ -78,13 +96,29 @@ const HeaderMobile = ({ currentTheme }: any) => {
   } else if (pathname.includes('/report-a-problem')) {
     buttonColor = 'red-svg-color';
   } else {
-    buttonColor = 'normal';
+    buttonColor = "normal";
   }
 
   return (
-    <header className={`Header-Mobile ${currentTheme}`}>
-      <RxAvatar className={`svg-icon ${buttonColor}`} />
-      <Link style={{ width: '36px', height: '44px' }} to="/">
+    <header className="Header-Mobile">
+      <nav
+        className={`${isDropdownOpenAuth ? "open" : ""}`}
+        onClick={toggleDropdownAuth}
+      >
+        {isDropdownOpenAuth ? (
+          <VscChromeClose />
+        ) : (
+          <RxAvatar className={`svg-icon ${buttonColor}`} />
+        )}
+        {isDropdownOpenAuth && (
+          <div>
+            <HeaderNavLink link="/login" textContent="Login" />
+            <HeaderNavLink link="/signup" textContent="Sign up" />
+          </div>
+        )}
+      </nav>
+      <Link style={{ width: "36px", height: "44px" }} to="/">
+
         <img src={Logo} alt="" width="36px" height="44px" />
       </Link>
       <nav

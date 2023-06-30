@@ -197,7 +197,7 @@
 .News-Secondary-Mobile {
   &.dark .News-Item-Mobile {
     background-color: $darknavigation;
-    border: 1px solid #2e2e2e;
+    box-shadow: none;
 
     .summary {
       color: #aaaaaa;
@@ -222,7 +222,8 @@
     margin: 0 auto 30px auto;
     background-color: $navigation;
     border-radius: 1.5rem;
-    border: 1px solid #e6e6e6;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
     img {
       width: 100%;

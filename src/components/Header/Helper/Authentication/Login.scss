@@ -1,0 +1,72 @@
+.main-login-page {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+  font-family: "Roboto", sans-serif;
+  .login-container {
+    padding-top: 10vh;
+    padding-bottom: 3vh;
+    text-align: center;
+    h2 {
+      color: black;
+      font-size: 45px;
+      margin-bottom: 45px;
+      letter-spacing: 4px;
+    }
+    .inputs-div {
+      display: flex;
+      flex-direction: column;
+      input {
+        font-size: 1.5rem;
+        text-align: center;
+        border-radius: 2px;
+        border: 1px solid black;
+        height: 30px;
+        width: 250px;
+        outline: none;
+        border-radius: 3px;
+      }
+      input::placeholder {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      input:focus {
+        font-size: 1.5rem;
+        outline: none;
+        text-align: center;
+      }
+      .username-input, .pass-input {
+        margin-bottom: 4vh;
+      }
+    }
+  }
+  .submit-btn {
+    letter-spacing: 1px;
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 8px 40px;
+    font-size: 17px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+  }
+  .bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    font-weight: 500;
+    .first-span {
+      margin-right: 15px;
+    }
+    button {
+      font-size: 16px;
+      padding: 2px 10px;
+      border-radius: 3px;
+      border: 1px solid black;
+    }
+  }
+}
