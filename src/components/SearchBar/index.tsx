@@ -3,6 +3,7 @@ import { useViewportSize } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -16,6 +17,7 @@ const SearchBarDesktop = ({
   currentTheme,
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchedData, setSearchedData] = useState([]);
   const location = useLocation();
   const { pathname } = location;
 
@@ -31,14 +33,20 @@ const SearchBarDesktop = ({
     buttonColor = 'normal';
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      onSearch(searchQuery);
+  const handleSearch = async (query: string) => {
+    if (searchQuery.length === 0) {
+      return;
     }
-  };
+    const response = await axios.post(
+      `https://api.mojnovipazar.info/search/${query}`
+    );
 
-  const handleSearch = () => {
-    onSearch(searchQuery);
+    if (response.data) {
+      setSearchedData(response.data);
+      console.log(response.data);
+    } else {
+      console.log('Data does not exist');
+    }
   };
 
   useEffect(() => {
@@ -46,18 +54,30 @@ const SearchBarDesktop = ({
     onSearch('');
   }, [location.pathname]);
 
+  useEffect(() => {
+    handleSearch(searchQuery);
+  }, [searchQuery]);
+
   return (
     <div className={`SearchBar ${currentTheme}`}>
-      <button onClick={handleSearch}>
-        <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
-      </button>
-      <input
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-        name="Search Bar"
-      />
+      <div className="inputs">
+        <button>
+          <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
+        </button>
+        <input
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          placeholder={placeholder}
+          name="Search Bar"
+        />
+      </div>
+      {searchQuery.length > 0 && (
+        <div className="dropdowns">
+          {searchedData.map((item: any, index: number) => (
+            <a key={index}>{item.title}</a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -68,6 +88,7 @@ const SearchBarMobile = ({
   currentTheme,
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchedData, setSearchedData] = useState([]);
   const location = useLocation();
   const { pathname } = location;
 
@@ -83,14 +104,20 @@ const SearchBarMobile = ({
     buttonColor = 'normal';
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      onSearch(searchQuery);
+  const handleSearch = async (query: string) => {
+    if (searchQuery.length === 0) {
+      return;
     }
-  };
+    const response = await axios.post(
+      `https://api.mojnovipazar.info/search/${query}`
+    );
 
-  const handleSearch = () => {
-    onSearch(searchQuery);
+    if (response.data) {
+      setSearchedData(response.data);
+      console.log(response.data);
+    } else {
+      console.log('Data does not exist');
+    }
   };
 
   useEffect(() => {
@@ -98,18 +125,30 @@ const SearchBarMobile = ({
     onSearch('');
   }, [location.pathname]);
 
+  useEffect(() => {
+    handleSearch(searchQuery);
+  }, [searchQuery]);
+
   return (
     <div className={`SearchBarMobile ${currentTheme}`}>
-      <button onClick={handleSearch}>
-        <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
-      </button>
-      <input
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-        name="Search Bar"
-      />
+      <div className="inputs">
+        <button>
+          <AiOutlineSearch className={`svg-icon ${buttonColor}`} />
+        </button>
+        <input
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          placeholder={placeholder}
+          name="Search Bar"
+        />
+      </div>
+      {searchQuery.length > 0 && (
+        <div className="dropdowns">
+          {searchedData.map((item: any, index: number) => (
+            <a key={index}>{item.title}</a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
