@@ -2,7 +2,7 @@ import './index.scss';
 import { useViewportSize } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface SearchBarProps {
@@ -19,6 +19,7 @@ const SearchBarDesktop = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedData, setSearchedData] = useState([]);
   const location = useLocation();
+  const navigate = useNavigate();
   const { pathname } = location;
 
   let buttonColor = '';
@@ -43,10 +44,11 @@ const SearchBarDesktop = ({
 
     if (response.data) {
       setSearchedData(response.data);
-      console.log(response.data);
-    } else {
-      console.log('Data does not exist');
     }
+  };
+
+  const handleNewsItemClick = (item: any) => {
+    navigate(`/news/search/${item.key}`);
   };
 
   useEffect(() => {
@@ -73,9 +75,16 @@ const SearchBarDesktop = ({
       </div>
       {searchQuery.length > 0 && (
         <div className="dropdowns">
-          {searchedData.map((item: any, index: number) => (
-            <a key={index}>{item.title}</a>
-          ))}
+          <p>Rezultat pretrage:</p>
+          {searchedData.length > 0 ? (
+            searchedData.map((item: any, index: number) => (
+              <span key={index} onClick={() => handleNewsItemClick(item)}>
+                {item.title.slice(0, 30)}... - <em>vesti</em>
+              </span>
+            ))
+          ) : (
+            <p>Nema podudarnih pretraga.</p>
+          )}
         </div>
       )}
     </div>
@@ -89,6 +98,7 @@ const SearchBarMobile = ({
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedData, setSearchedData] = useState([]);
+  const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
 
@@ -114,10 +124,11 @@ const SearchBarMobile = ({
 
     if (response.data) {
       setSearchedData(response.data);
-      console.log(response.data);
-    } else {
-      console.log('Data does not exist');
     }
+  };
+
+  const handleNewsItemClick = (item: any) => {
+    navigate(`/news/${item.linkId}`);
   };
 
   useEffect(() => {
@@ -144,9 +155,16 @@ const SearchBarMobile = ({
       </div>
       {searchQuery.length > 0 && (
         <div className="dropdowns">
-          {searchedData.map((item: any, index: number) => (
-            <a key={index}>{item.title}</a>
-          ))}
+          <p>Rezultat pretrage:</p>
+          {searchedData.length > 0 ? (
+            searchedData.map((item: any, index: number) => (
+              <span key={index} onClick={() => handleNewsItemClick(item)}>
+                {item.title.slice(0, 30)}... - <em>vesti</em>
+              </span>
+            ))
+          ) : (
+            <p>Nema podudarnih pretraga</p>
+          )}
         </div>
       )}
     </div>

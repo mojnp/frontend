@@ -15,6 +15,7 @@ import Signup from './components/Header/Helper/Authentication/Signup';
 import { useEffect, useState } from 'react';
 import { useHotkeys } from '@mantine/hooks';
 import './index.scss';
+import MainNewsSearch from './components/News/Helper/MainNewsSearch';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -48,6 +49,10 @@ const App = () => {
           element={<MainNewsFetchMobile currentTheme={currentTheme} />}
         />
         <Route
+          path="/news/search/:key"
+          element={<MainNewsSearch currentTheme={currentTheme} />}
+        />
+        <Route
           path="/tourism"
           element={<Tourism currentTheme={currentTheme} />}
         />
@@ -62,8 +67,8 @@ const App = () => {
           element={<ReportProblem currentTheme={currentTheme} />}
         />
         <Route path="/report-a-problem" element={<ReportProblem />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer currentTheme={currentTheme} />

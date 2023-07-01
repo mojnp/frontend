@@ -119,6 +119,10 @@
         transition: 0.4s all;
         font-family: 'Code Pro';
 
+        a {
+          color: inherit;
+        }
+
         &:nth-child(1) {
           color: #f6f6f6;
           border: none;
