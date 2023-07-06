@@ -57,19 +57,34 @@
   .dropdowns {
     position: absolute;
     top: 3vw;
-    left: 35%;
+    left: 25%;
     right: 25%;
     max-height: 400px;
     overflow: auto;
     display: flex;
     flex-direction: column;
-    background-color: $darknavigation;
-    color: $darktext;
+    background-color: $navigation;
+    color: $text;
+    padding: 18px;
+    border: 1px solid #d0d0d0;
     z-index: 100000;
 
-    a {
+    p {
       margin: 6px 0;
-      border: 1px solid #888;
+      border-bottom: 1px solid $lighttext;
+      font-size: 1.4vw;
+    }
+
+    span {
+      margin: 11px 0;
+      border-bottom: 1px solid $lightertext;
+      font-size: 1vw;
+      color: $lighttext;
+      cursor: pointer;
+
+      em {
+        color: $lightertext;
+      }
     }
   }
 
@@ -134,7 +149,7 @@
 .SearchBarMobile {
   display: flex;
   justify-content: center;
-  height: 48px;
+  height: 12vw;
   background-color: $navigation;
   width: 100%;
   border: 1px solid #e6e6e6;
@@ -165,20 +180,35 @@
 
   .dropdowns {
     position: absolute;
-    top: 48px;
-    left: 20%;
+    top: 12vw;
+    left: 0;
     right: 0;
-    max-height: 300px;
+    max-height: 400px;
     overflow: auto;
     display: flex;
     flex-direction: column;
-    background-color: $darknavigation;
-    color: $darktext;
+    background-color: $navigation;
+    color: $text;
+    padding: 12px;
     z-index: 100000;
+    border: 1px solid #888;
 
-    a {
-      margin: 6px 0;
-      border: 1px solid #888;
+    p {
+      margin: 0 0 6px 0;
+      border-bottom: 1px solid $lighttext;
+      font-size: 6vw;
+    }
+
+    span {
+      margin: 13px 0;
+      border-bottom: 1px solid $lightertext;
+      font-size: 4.5vw;
+      color: $lighttext;
+      cursor: pointer;
+
+      em {
+        color: $lightertext;
+      }
     }
   }
 

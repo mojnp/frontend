@@ -1,38 +1,41 @@
-import './index.scss';
-import TourismCardContainer from './Helper/TourismCardContainer';
-import TourismCardContainerMobile from './Helper/TourismCardContainerMobile';
-import { useEffect, useRef } from 'react';
-import { useViewportSize } from '@mantine/hooks';
+import "./index.scss";
+import TourismCardContainer from "./Helper/TourismCardContainer";
+import TourismCardContainerMobile from "./Helper/TourismCardContainerMobile";
+import { useEffect, useRef } from "react";
+import { useViewportSize } from "@mantine/hooks";
+import CityMap from "./Helper/Map";
+import CityMapMobile from "./Helper/MapMobile";
+
 
 export const dummyData = [
   {
-    id: 'islamski-spomenici1',
-    title: 'Islamski Spomenici',
+    id: "islamski-spomenici1",
+    title: "Islamski Spomenici",
     isAnimated: false,
   },
   {
-    id: 'hriscanski-spomenici2',
-    title: 'Hriscanski Spomenici',
+    id: "hriscanski-spomenici2",
+    title: "Hriscanski Spomenici",
     isAnimated: false,
   },
   {
-    id: 'sruseni-spomenici3',
-    title: 'Sruseni Spomenici',
+    id: "sruseni-spomenici3",
+    title: "Sruseni Spomenici",
     isAnimated: false,
   },
   {
-    id: 'restorani4',
-    title: 'Restorani',
+    id: "restorani4",
+    title: "Restorani",
     isAnimated: false,
   },
   {
-    id: 'hoteli5',
-    title: 'Hoteli',
+    id: "hoteli5",
+    title: "Hoteli",
     isAnimated: false,
   },
   {
-    id: 'mapa6',
-    title: 'Mape',
+    id: "mapa6",
+    title: "Mape",
     isAnimated: false,
   },
 ];
@@ -42,9 +45,9 @@ const TourismDesktop = ({ currentTheme }: any) => {
 
   useEffect(() => {
     const handleScroll = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-from-bottom');
+          entry.target.classList.add("fade-in-from-bottom");
           observer.unobserve(entry.target);
         }
       });
@@ -85,6 +88,7 @@ const TourismDesktop = ({ currentTheme }: any) => {
           i pejzaža koji oduzimaju dah.
         </span>
       </div>
+      <CityMap/>
       <TourismCardContainer
         cards={dummyData}
         onCardClick={handleCardClick}
@@ -99,9 +103,9 @@ const TourismMobile = ({ currentTheme }: any) => {
 
   useEffect(() => {
     const handleScroll = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-from-bottom');
+          entry.target.classList.add("fade-in-from-bottom");
           observer.unobserve(entry.target);
         }
       });
@@ -134,6 +138,7 @@ const TourismMobile = ({ currentTheme }: any) => {
 
   return (
     <div className={`TourismMobile ${currentTheme}`}>
+
       <div className="TourismMobile__title">
         <h1>Vas vodic za gradski odmor u Novom Pazaru</h1>
         <span>
@@ -142,6 +147,7 @@ const TourismMobile = ({ currentTheme }: any) => {
           i pejzaža koji oduzimaju dah.
         </span>
       </div>
+      <CityMapMobile/>
       <TourismCardContainerMobile
         cards={dummyData}
         onCardClick={handleCardClick}

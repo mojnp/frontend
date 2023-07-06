@@ -11,7 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [phone_number, setPhone_number] = useState("");
-  const { width } = useViewportSize()
+  const { width } = useViewportSize();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const Signup = () => {
           username: username,
           password: password,
           full_name: full_name,
-          address: '',
+          address: "",
           email: email,
           phone_number: phone_number,
           role: "string",
@@ -44,6 +44,17 @@ const Signup = () => {
           },
         }
       )
+      .then(() => {
+        const form = new FormData();
+        form.append("username", username);
+        form.append("password", password);
+        axios
+          .post("https://api.mojnovipazar.info/auth/login", form)
+          .then((r) => {
+            r.data && sessionStorage.setItem("token", r.data.access_token);
+            window.location.assign('/')
+          });
+      })
       .catch(() => {
         alert("Data you entered is not valid!");
       });
@@ -54,7 +65,11 @@ const Signup = () => {
       <div className="signup-container">
         <h2>Sign Up</h2>
         <form className="inputs-div">
-          <div className={width <= 786 ? 'mobile-input-wrappers' : "input-wrappers"}>
+          <div
+            className={
+              width <= 786 ? "mobile-input-wrappers" : "input-wrappers"
+            }
+          >
             <input
               className="username"
               name="username"
@@ -77,7 +92,11 @@ const Signup = () => {
               }}
             />
           </div>
-          <div className={width <= 786 ? 'mobile-input-wrappers' : "input-wrappers"}>
+          <div
+            className={
+              width <= 786 ? "mobile-input-wrappers" : "input-wrappers"
+            }
+          >
             <input
               className="password"
               type="password"
@@ -95,15 +114,14 @@ const Signup = () => {
               placeholder="Confirm Password"
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
-                if (confirmpassword === password) {
-                  return;
-                } else {
-                  alert('Password and Confirm password do not match!')
-                }
               }}
             />
           </div>
-          <div className={width <= 786 ? 'mobile-input-wrappers' : "input-wrappers"}>
+          <div
+            className={
+              width <= 786 ? "mobile-input-wrappers" : "input-wrappers"
+            }
+          >
             <input
               className="email"
               type="text"

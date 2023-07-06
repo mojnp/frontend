@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+// import IslamicMonuments from './CardDataContainer';
 
 export interface TourismCards {
   id: string;
   title: string;
   isAnimated: Boolean;
-  
 }
 
 interface TourismCardProps {
@@ -29,7 +29,10 @@ const TourismCard: React.FC<TourismCardProps> = ({
     cardRefs.current.push(cardRef.current);
   }, []);
 
+
+
   return (
+    <>
     <Link
       className={`Tourism__card-link ${
         cards.isAnimated ? 'fade-in-from-bottom' : ''
@@ -41,6 +44,9 @@ const TourismCard: React.FC<TourismCardProps> = ({
       <div className="Tourism__card"></div>
       <h3>{cards.title}</h3>
     </Link>
+
+    </>
+
   );
 };
 

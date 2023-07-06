@@ -1,10 +1,11 @@
-import TourismCardMobile, { TourismCards } from './TourismCardMobile';
+import TourismCardMobile, { TourismCards } from "./TourismCardMobile";
 
 interface TourismCardContainerProps {
   cards: TourismCards[];
   onCardClick: (cards: TourismCards) => void;
   cardRefs: React.MutableRefObject<any[]>;
 }
+
 
 const TourismCardContainerMobile: React.FC<TourismCardContainerProps> = ({
   cards,
@@ -16,7 +17,7 @@ const TourismCardContainerMobile: React.FC<TourismCardContainerProps> = ({
   };
   return (
     <div className="TourismMobile__card-container">
-      {cards.map(card => (
+      {cards.map((card) => (
         <TourismCardMobile
           cardRefs={cardRefs}
           key={card.id}

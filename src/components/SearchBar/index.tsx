@@ -18,6 +18,7 @@ const SearchBarDesktop = ({
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchedData, setSearchedData] = useState([]);
+
   const location = useLocation();
   const navigate = useNavigate();
   const { pathname } = location;
@@ -48,8 +49,21 @@ const SearchBarDesktop = ({
   };
 
   const handleNewsItemClick = (item: any) => {
-    navigate(`/news/search/${item.key}`);
+    navigate(`/${item.type}/search/${item.key}`);
+    setSearchQuery('');
   };
+
+  useEffect(() => {
+    const handleScrollReset = () => {
+      setSearchQuery('');
+    };
+
+    window.addEventListener('scroll', handleScrollReset);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollReset);
+    };
+  }, []);
 
   useEffect(() => {
     setSearchQuery('');
@@ -79,7 +93,7 @@ const SearchBarDesktop = ({
           {searchedData.length > 0 ? (
             searchedData.map((item: any, index: number) => (
               <span key={index} onClick={() => handleNewsItemClick(item)}>
-                {item.title.slice(0, 30)}... - <em>vesti</em>
+                {item.title.slice(0, 30)}... - <em>{item.type}</em>
               </span>
             ))
           ) : (
@@ -128,8 +142,21 @@ const SearchBarMobile = ({
   };
 
   const handleNewsItemClick = (item: any) => {
-    navigate(`/news/${item.linkId}`);
+    navigate(`/${item.type}/search/${item.key}`);
+    setSearchQuery('');
   };
+
+  useEffect(() => {
+    const handleScrollReset = () => {
+      setSearchQuery('');
+    };
+
+    window.addEventListener('scroll', handleScrollReset);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollReset);
+    };
+  }, []);
 
   useEffect(() => {
     setSearchQuery('');
@@ -159,7 +186,7 @@ const SearchBarMobile = ({
           {searchedData.length > 0 ? (
             searchedData.map((item: any, index: number) => (
               <span key={index} onClick={() => handleNewsItemClick(item)}>
-                {item.title.slice(0, 30)}... - <em>vesti</em>
+                {item.title.slice(0, 30)}... - <em>{item.type}</em>
               </span>
             ))
           ) : (

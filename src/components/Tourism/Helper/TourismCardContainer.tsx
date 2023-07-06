@@ -1,4 +1,4 @@
-import TourismCard, { TourismCards } from './TourismCard';
+import TourismCard, { TourismCards } from "./TourismCard";
 
 interface TourismCardContainerProps {
   cards: TourismCards[];
@@ -16,7 +16,7 @@ const TourismCardContainer: React.FC<TourismCardContainerProps> = ({
   };
   return (
     <div className="Tourism__card-container">
-      {cards.map(card => (
+      {cards.map((card) => (
         <TourismCard
           cardRefs={cardRefs}
           key={card.id}

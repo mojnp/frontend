@@ -1,6 +1,6 @@
 import { TbTargetArrow } from "react-icons/tb";
 import { GiEyeTarget} from "react-icons/gi";
-
+import '../index.scss'
 const AboutMobile = () => {
     return (
       <div className="main-div-mobile">

@@ -323,26 +323,47 @@
   flex-direction: column;
   justify-content: center;
 
+  @media all and (max-width: 786px) {
+    width: 90%;
+  }
+
   .Searched-Container__image {
     display: flex;
     justify-content: center;
 
     img {
       width: 80%;
+
+      @media all and (max-width: 786px) {
+        width: 100%;
+      }
     }
   }
 
   .Searched-Container__title {
     h2 {
       font-size: 2vw;
+
+      @media all and (max-width: 786px) {
+        font-size: 7vw;
+      }
     }
     p {
       font-size: 1.1vw;
       display: flex;
       align-items: center;
+
+      @media all and (max-width: 786px) {
+        font-size: 5vw;
+        margin: 0;
+      }
     }
   }
   .paragraph {
     font-size: 1.2vw;
+
+    @media all and (max-width: 786px) {
+      font-size: 5.3vw;
+    }
   }
 }
